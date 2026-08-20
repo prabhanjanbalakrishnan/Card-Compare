@@ -1,27 +1,17 @@
-import { useEffect, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import SiteHeader from './components/SiteHeader.jsx'
 import Home from './pages/Home.jsx'
 import IssuerPage from './pages/IssuerPage.jsx'
 import ComparePage from './pages/ComparePage.jsx'
 import { ISSUERS } from './constants.js'
+import cardsData from './data/cards.json'
 import './App.css'
 
+const cards = cardsData.cards
+
 export default function App() {
-  const [cards, setCards] = useState(null)
-
-  useEffect(() => {
-    fetch('/data/cards.json')
-      .then((res) => res.json())
-      .then((data) => setCards(data.cards))
-  }, [])
-
-  if (!cards) {
-    return <div className="loading">Loading cards…</div>
-  }
-
   return (
-    <BrowserRouter>
+    <HashRouter>
       <SiteHeader />
       <Routes>
         <Route path="/" element={<Home cards={cards} />} />
@@ -34,6 +24,6 @@ export default function App() {
         ))}
         <Route path="/compare" element={<ComparePage cards={cards} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
