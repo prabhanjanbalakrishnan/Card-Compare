@@ -168,6 +168,27 @@
   font-size: 0.78rem;
 }
 
+.partner-group {
+  margin: 0 0 0.9rem;
+}
+
+.partner-group:last-child {
+  margin-bottom: 0;
+}
+
+.partner-group .partner-label {
+  margin: 0 0 0.4rem;
+}
+
+.partner-chip-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
 .flags-box {
   background: var(--warn-soft);
   border: 1px solid color-mix(in srgb, var(--warn) 35%, transparent);

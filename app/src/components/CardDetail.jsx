@@ -72,16 +72,28 @@ export default function CardDetail({ card }) {
       <section className="detail-section">
         <h4>Partnerships</h4>
         {airlines.length > 0 && (
-          <p className="partner-line">
-            <span className="partner-label">Airline transfer partners </span>
-            {airlines.join(', ')}
-          </p>
+          <div className="partner-group">
+            <p className="partner-label">Airline transfer partners ({airlines.length})</p>
+            <ul className="partner-chip-list">
+              {airlines.map((a, i) => (
+                <li key={i} className="chip">
+                  {a}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
         {hotels.length > 0 && (
-          <p className="partner-line">
-            <span className="partner-label">Hotel transfer partners </span>
-            {hotels.join(', ')}
-          </p>
+          <div className="partner-group">
+            <p className="partner-label">Hotel transfer partners ({hotels.length})</p>
+            <ul className="partner-chip-list">
+              {hotels.map((h, i) => (
+                <li key={i} className="chip">
+                  {h}
+                </li>
+              ))}
+            </ul>
+          </div>
         )}
         {partnerships.coBrand && (
           <p className="partner-line">
