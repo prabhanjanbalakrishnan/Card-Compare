@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --paper: #eef1ef;
+  --paper-raised: #ffffff;
+  --ink: #171b19;
+  --ink-soft: #4c5652;
+  --rule: #d6dbd8;
+  --rule-strong: #b9c1bc;
+  --accent: #33517a;
+  --accent-soft: #e4eaf2;
+  --good: #3f7d5c;
+  --good-soft: #e2f0e7;
+  --warn: #a9661c;
+  --warn-soft: #f7ead9;
+  --chip: #dfe4e1;
+  --shadow: 0 1px 2px rgba(23, 27, 25, 0.06), 0 4px 14px rgba(23, 27, 25, 0.05);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14181a;
+    --paper-raised: #1c2225;
+    --ink: #e9edec;
+    --ink-soft: #a7b1ad;
+    --rule: #2c3436;
+    --rule-strong: #3c4547;
+    --accent: #8fb1e0;
+    --accent-soft: #22344a;
+    --good: #7fc79f;
+    --good-soft: #1e332a;
+    --warn: #e0a862;
+    --warn-soft: #3a2c1a;
+    --chip: #262e30;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 20px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+select,
+label,
+nav {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.num {
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+a {
+  color: var(--accent);
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--ink-soft);
+}

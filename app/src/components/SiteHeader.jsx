@@ -1,0 +1,28 @@
+import { NavLink } from 'react-router-dom'
+import { ISSUERS } from '../constants.js'
+
+export default function SiteHeader() {
+  return (
+    <header className="site-header">
+      <div className="site-header-inner">
+        <NavLink to="/" className="brand">
+          Card Compare
+        </NavLink>
+        <nav className="site-nav">
+          {ISSUERS.map((issuer) => (
+            <NavLink
+              key={issuer.slug}
+              to={`/${issuer.slug}`}
+              className={({ isActive }) => (isActive ? 'active' : undefined)}
+            >
+              {issuer.short}
+            </NavLink>
+          ))}
+          <NavLink to="/compare" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+            Compare
+          </NavLink>
+        </nav>
+      </div>
+    </header>
+  )
+}

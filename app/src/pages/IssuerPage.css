@@ -1,0 +1,31 @@
+.issuer-intro {
+  margin-bottom: 1.5rem;
+}
+
+.issuer-intro .eyebrow {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+
+.issuer-intro h1 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  margin: 0;
+}
+
+.single-card-note,
+.empty-note {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  margin: 0 0 1.5rem;
+  max-width: 62ch;
+}

@@ -1,0 +1,71 @@
+.compare-intro {
+  margin-bottom: 1.6rem;
+}
+
+.compare-intro .eyebrow {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+
+.compare-intro h1 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+.compare-intro .lede {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.picker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 0.65rem 0.85rem;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.87rem;
+  cursor: pointer;
+}
+
+.picker-item.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.picker-item span {
+  display: flex;
+  flex-direction: column;
+}
+
+.picker-item em {
+  font-style: normal;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.single-card-note {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  max-width: 62ch;
+}

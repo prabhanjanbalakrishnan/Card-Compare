@@ -1,0 +1,73 @@
+.chart-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow);
+}
+
+.chart-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 520px;
+}
+
+.chart-table th,
+.chart-table td {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  font-size: 0.92rem;
+}
+
+.chart-table thead th {
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule-strong);
+  white-space: nowrap;
+}
+
+.chart-table tbody tr:last-child th,
+.chart-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.row-label-col {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  white-space: nowrap;
+  background: var(--paper);
+}
+
+.fee-cell {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.chart-mini-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chart-mini-list li {
+  padding: 0.15rem 0;
+}
+
+.rate-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.chart-more {
+  margin: 0.35rem 0 0;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}

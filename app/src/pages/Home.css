@@ -1,0 +1,92 @@
+.home-intro {
+  border-bottom: 1px solid var(--rule-strong);
+  padding-bottom: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.eyebrow {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.6rem;
+}
+
+.home-intro h1 {
+  font-size: clamp(1.7rem, 3.4vw, 2.3rem);
+  font-weight: 700;
+  margin: 0 0 0.75rem;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: 1.02rem;
+  margin: 0;
+}
+
+.issuer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+  margin-bottom: 2.5rem;
+}
+
+.issuer-tile {
+  display: block;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.3rem 1.4rem;
+  text-decoration: none;
+  color: var(--ink);
+  box-shadow: var(--shadow);
+  transition: border-color 0.15s ease;
+}
+
+.issuer-tile:hover {
+  border-color: var(--accent);
+}
+
+.issuer-tile h2 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0 0 0.2rem;
+}
+
+.issuer-tile > p {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin: 0 0 0.7rem;
+}
+
+.issuer-tile ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.issuer-tile li {
+  padding: 0.15rem 0;
+}
+
+.compare-cta {
+  display: inline-block;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+}
+
+.compare-cta:hover {
+  background: var(--accent-soft);
+}
