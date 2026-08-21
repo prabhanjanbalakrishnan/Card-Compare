@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-A credit card comparison web app. Loosely mirrors the sibling `Pokemon Project` (static JSON dataset, no backend), but diverges in two ways specific to this project's needs: the dataset is small (15 cards) and hand-compiled from research rather than fetched from an API, and the app needs to be shareable as a standalone file (see "Publishing a shareable build" below) — so `app/src/App.jsx` **imports** `app/src/data/cards.json` directly as a JS module (bundled at build time) rather than fetching it at runtime, and routing uses `HashRouter` (not `BrowserRouter`) so it works with no server-side routing support.
+A credit card comparison web app. Loosely mirrors the sibling `Pokemon Project` (static JSON dataset, no backend), but diverges in two ways specific to this project's needs: the dataset is small (16 cards) and hand-compiled from research rather than fetched from an API, and the app needs to be shareable as a standalone file (see "Publishing a shareable build" below) — so `app/src/App.jsx` **imports** `app/src/data/cards.json` directly as a JS module (bundled at build time) rather than fetching it at runtime, and routing uses `HashRouter` (not `BrowserRouter`) so it works with no server-side routing support.
 
-Started as premium travel cards only; as of 2026-08-21 also covers lower-tier, non-travel cash-back cards (Discover, TD Bank) at the user's request — the schema and components generalize to both (see "The 15 cards covered" below).
+Started as premium travel cards only; as of 2026-08-21 also covers lower-tier, non-travel cash-back cards (Discover, TD Bank) and single-product cards (Apple Card) at the user's request — the schema and components generalize to all of these (see "The 16 cards covered" below).
 
 ## Commands
 
@@ -36,9 +36,9 @@ The app (`app/`) is built and functional — issuer pages with comparison charts
 - [`data/cards-draft.json`](data/cards-draft.json) — the raw draft dataset, one entry per card
 - [`data/cards-review.html`](data/cards-review.html) — a standalone HTML review page (built with the `artifact-design` skill) rendering the dataset as a summary table + per-card dossiers, with flagged/uncertain fields called out in amber. Open this directly in a browser to review, or re-publish it as a Claude Artifact.
 
-### The 15 cards covered
+### The 16 cards covered
 
-The first 10 were chosen to match the user's ask: "top travel cards in the world... Amex tiers, Capital One tiers, Chase tiers, Bank of America tiers, etc." 5 more were added 2026-08-21 as "lower tier, non-travel" examples (Discover, TD Bank). All are US-market cards (reliable structured data on non-US issuers is much harder to verify — flag this to the user if truly global cards are wanted later).
+The first 10 were chosen to match the user's ask: "top travel cards in the world... Amex tiers, Capital One tiers, Chase tiers, Bank of America tiers, etc." 5 more were added 2026-08-21 as "lower tier, non-travel" examples (Discover, TD Bank), plus Apple Card the same day. All are US-market cards (reliable structured data on non-US issuers is much harder to verify — flag this to the user if truly global cards are wanted later).
 
 | Card | Issuer | Tier position |
 |---|---|---|
@@ -57,6 +57,7 @@ The first 10 were chosen to match the user's ask: "top travel cards in the world
 | TD Cash | TD Bank | Mid-tier cash back, below TD First Class Visa Signature |
 | TD Double Up | TD Bank | Mid-tier flat cash back (up to 2%, conditional — see flags) |
 | TD Clear | TD Bank | Bottom tier — **no rewards program at all**, monthly-fee-instead-of-interest structure |
+| Apple Card | Apple | Single product, no tiers — "Apple Card Family" is a sharing feature, not a different tier |
 
 ### Data fields per card (see `cards-draft.json` for exact schema)
 
@@ -78,15 +79,16 @@ Matches the 5 comparison points the user asked for, plus supporting fields:
 - **TD Double Up** — the "up to 2%" is conditional: 1% on purchase + 1% only if redeemed into a TD deposit account, not an unconditional flat 2% (a common point of confusion with similar-sounding cards from other issuers). Sign-up bonus figure conflicts across sources (current official offer $200/$1,500 spend vs. an older press release's $75/$500 — used the current one). Also flagged as possibly not available in all states, unconfirmed which ones.
 - **TD Clear** — balance transfer fee couldn't be confirmed (source terms PDF was unreadable by the research tooling). The "no rewards at all" claim is high confidence (two independent sources) but flagged given how unusual the product structure is.
 - **Discover (both cards)** — the $0 foreign transaction fee is well-corroborated by secondary sources but wasn't found explicitly itemized in the official page text captured; same for the exact late-fee amount.
+- **Apple Card** — issuing bank is Goldman Sachs Bank USA as of today, but JPMorgan Chase announced a takeover of the Apple Card portfolio in Jan 2026 (~24-month transition, not expected to complete until ~early 2028). This is the single most likely fact in the whole dataset to go stale — re-check it periodically. Also: Apple Card Savings account APY wasn't captured (changes frequently), and the 3% Daily Cash merchant partner list is curated by Apple and known to change periodically.
 
 ## UI direction (decided 2026-08-20, built same day)
 
 Rejected a flat grid/list of all 10 cards in favor of an issuer-grouped structure:
 
-- **One route per issuer**: `/amex`, `/chase`, `/capital-one`, `/bank-of-america`, `/citi`, `/wells-fargo`, `/discover`, `/td-bank` (route slugs and display names live in `app/src/constants.js`'s `ISSUERS` array — add an issuer there and it automatically gets a route, nav link, and home-page tile; this is exactly how Discover and TD Bank were added). Each route (`app/src/pages/IssuerPage.jsx`) shows a **comparison chart** (`app/src/components/ComparisonChart.jsx`) of that issuer's cards when there are 2+, e.g. the Amex page compares Platinum vs. Gold row-by-row across annual fee, tier, points program, top earning rates, perks, transfer-partner count.
+- **One route per issuer**: `/amex`, `/chase`, `/capital-one`, `/bank-of-america`, `/citi`, `/wells-fargo`, `/discover`, `/td-bank`, `/apple` (route slugs and display names live in `app/src/constants.js`'s `ISSUERS` array — add an issuer there and it automatically gets a route, nav link, and home-page tile; this is exactly how Discover, TD Bank, and Apple were added). Each route (`app/src/pages/IssuerPage.jsx`) shows a **comparison chart** (`app/src/components/ComparisonChart.jsx`) of that issuer's cards when there are 2+, e.g. the Amex page compares Platinum vs. Gold row-by-row across annual fee, tier, points program, top earning rates, perks, transfer-partner count.
 - **Tabs below the chart** (`app/src/components/CardTabs.jsx`) let the user click a card name to swap in that card's full detail panel (`app/src/components/CardDetail.jsx` — all perks, partnerships, points system, plus any `flags`) without leaving the page. Transfer partners (airlines/hotels) render as individual chips with a count in the label (e.g. "Airline transfer partners (17)"), not a comma-joined line — long partner lists were hard to scan as prose. Reuses the same `.chip` pill style as the tier lineup for visual consistency.
 - **A separate cross-issuer compare tool** at `/compare` (`app/src/pages/ComparePage.jsx`) lets the user checkbox-select 2–4 cards from *any* issuer and reuses the same `ComparisonChart`/`CardTabs`/`CardDetail` components.
-- **Citi and Wells Fargo currently have only one card each** in the dataset, so their issuer pages fall back to a single-card notice + detail panel instead of a comparison chart (handled automatically by `IssuerPage.jsx`'s `issuerCards.length` check — no special-casing needed elsewhere). Comparison charts for those issuers will appear automatically once a second card is added to `cards-draft.json`/`cards.json` for that issuer.
+- **Citi, Wells Fargo, and Apple currently have only one card each** in the dataset, so their issuer pages fall back to a single-card notice + detail panel instead of a comparison chart (handled automatically by `IssuerPage.jsx`'s `issuerCards.length` check — no special-casing needed elsewhere). For Apple this is permanent, not a research gap — Apple Card genuinely has no tiered lineup (confirmed via research; "Apple Card Family" is a sharing feature, not a different product). Comparison charts for Citi/Wells Fargo will appear automatically once a second card is added to `cards-draft.json`/`cards.json` for that issuer.
 - Home page (`/`, `app/src/pages/Home.jsx`) is a hub: tiles linking to each issuer (showing card count + names) plus a CTA to `/compare`.
 
 Design tokens (IBM Plex Sans/Serif/Mono, the "ledger" color palette) are shared between the original `data/cards-review.html` review page and the live app's `app/src/index.css`, so the two look/feel consistent.

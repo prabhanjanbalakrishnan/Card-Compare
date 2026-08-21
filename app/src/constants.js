@@ -7,4 +7,5 @@ export const ISSUERS = [
   { slug: 'wells-fargo', name: 'Wells Fargo', short: 'Wells Fargo' },
   { slug: 'discover', name: 'Discover', short: 'Discover' },
   { slug: 'td-bank', name: 'TD Bank', short: 'TD Bank' },
+  { slug: 'apple', name: 'Apple', short: 'Apple' },
 ]

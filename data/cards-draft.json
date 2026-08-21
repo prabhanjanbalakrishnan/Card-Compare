@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request.",
-    "cardCount": 15
+    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card.",
+    "cardCount": 16
   },
   "cards": [
     {
@@ -1457,6 +1457,80 @@
       "flags": [
         "Balance transfer fee could not be confirmed (source terms PDF was unreadable) — flag before publishing if this matters.",
         "Zero-rewards claim is high confidence (two independent sources) but still worth a spot-check given how unusual this product structure is."
+      ]
+    },
+    {
+      "id": "apple-card",
+      "name": "Apple Card",
+      "issuer": "Apple",
+      "network": "Mastercard",
+      "annualFee": 0,
+      "tier": {
+        "family": "Apple Card (single product)",
+        "lineup": [
+          "Apple Card ($0)"
+        ],
+        "rank": "Single tier — no broader lineup. \"Apple Card Family\" is a co-ownership/sharing feature on the same product, not a separate tier with different terms."
+      },
+      "pointsProgram": {
+        "name": "Daily Cash",
+        "earningRates": [
+          {
+            "rate": "3%",
+            "category": "Purchases at Apple (Apple Store, App Store, Apple subscriptions) and at select partner merchants via Apple Pay"
+          },
+          {
+            "rate": "2%",
+            "category": "All other purchases made with Apple Pay"
+          },
+          {
+            "rate": "1%",
+            "category": "Purchases made with the physical titanium card (or virtual number) without Apple Pay"
+          }
+        ],
+        "redemption": [
+          "Daily Cash deposited daily, no minimum, no cap",
+          "Route to Apple Cash (spend immediately or send/receive), the Apple Card Savings account (earns APY), or apply as a statement credit"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": "Issued by Goldman Sachs Bank USA on the Mastercard network",
+        "other": "3% Daily Cash merchant partners: Nike, Uber/Uber Eats, Walgreens, Duane Reade, Booking.com, Exxon Mobil, Hertz, ChargePoint, Ace Hardware (curated list, changes periodically)"
+      },
+      "perks": [
+        {
+          "name": "No fees of any kind",
+          "note": "no annual, late, foreign transaction, or over-limit fees"
+        },
+        {
+          "name": "Apple Card Savings account",
+          "note": "Daily Cash can auto-deposit into a high-yield savings account earning APY"
+        },
+        {
+          "name": "Spending tracking in Wallet",
+          "note": "real-time categorized transaction view, itemized Apple receipts, merchant location tagging"
+        },
+        {
+          "name": "Titanium physical card",
+          "note": "laser-etched, no visible card number"
+        },
+        {
+          "name": "Strong privacy/security",
+          "note": "Face ID/Touch ID required to use; unique dynamic transaction codes; Apple states it doesn't see your purchase history"
+        },
+        {
+          "name": "Instant issuance",
+          "note": "virtual card number available in Wallet immediately upon approval on eligible iPhones"
+        }
+      ],
+      "flags": [
+        "Issuing bank is Goldman Sachs Bank USA as of today, but JPMorgan Chase announced a takeover of the Apple Card portfolio in Jan 2026 — a ~24-month transition is underway, not expected to complete until roughly early 2028. This is the fact most likely to go stale; re-check periodically.",
+        "Apple Card Savings account APY not captured (rates change frequently) — check the live rate if needed.",
+        "The 3% merchant partner list is curated by Apple and known to change periodically."
       ]
     }
   ]
