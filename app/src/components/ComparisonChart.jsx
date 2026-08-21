@@ -24,6 +24,7 @@ export default function ComparisonChart({ cards }) {
             {cards.map((card) => (
               <td key={card.id} className="num fee-cell">
                 ${card.annualFee}
+                {card.annualFeeNote && <div className="fee-note">{card.annualFeeNote}</div>}
               </td>
             ))}
           </tr>

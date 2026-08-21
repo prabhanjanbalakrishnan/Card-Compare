@@ -7,7 +7,7 @@ export default function Home({ cards }) {
     <main className="page">
       <header className="home-intro">
         <p className="eyebrow">Draft dataset · not yet finalized</p>
-        <h1>Compare travel credit cards by issuer</h1>
+        <h1>Compare credit cards by issuer</h1>
         <p className="lede">
           {cards.length} cards across {ISSUERS.length} issuers. Pick an issuer to see its cards
           compared side by side, or jump straight to comparing any cards across issuers.

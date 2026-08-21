@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-A credit card comparison web app. Loosely mirrors the sibling `Pokemon Project` (static JSON dataset, no backend), but diverges in two ways specific to this project's needs: the dataset is small (10 cards) and hand-compiled from research rather than fetched from an API, and the app needs to be shareable as a standalone file (see "Publishing a shareable build" below) — so `app/src/App.jsx` **imports** `app/src/data/cards.json` directly as a JS module (bundled at build time) rather than fetching it at runtime, and routing uses `HashRouter` (not `BrowserRouter`) so it works with no server-side routing support.
+A credit card comparison web app. Loosely mirrors the sibling `Pokemon Project` (static JSON dataset, no backend), but diverges in two ways specific to this project's needs: the dataset is small (15 cards) and hand-compiled from research rather than fetched from an API, and the app needs to be shareable as a standalone file (see "Publishing a shareable build" below) — so `app/src/App.jsx` **imports** `app/src/data/cards.json` directly as a JS module (bundled at build time) rather than fetching it at runtime, and routing uses `HashRouter` (not `BrowserRouter`) so it works with no server-side routing support.
+
+Started as premium travel cards only; as of 2026-08-21 also covers lower-tier, non-travel cash-back cards (Discover, TD Bank) at the user's request — the schema and components generalize to both (see "The 15 cards covered" below).
 
 ## Commands
 
@@ -34,9 +36,9 @@ The app (`app/`) is built and functional — issuer pages with comparison charts
 - [`data/cards-draft.json`](data/cards-draft.json) — the raw draft dataset, one entry per card
 - [`data/cards-review.html`](data/cards-review.html) — a standalone HTML review page (built with the `artifact-design` skill) rendering the dataset as a summary table + per-card dossiers, with flagged/uncertain fields called out in amber. Open this directly in a browser to review, or re-publish it as a Claude Artifact.
 
-### The 10 cards covered
+### The 15 cards covered
 
-Chosen to match the user's ask: "top travel cards in the world... Amex tiers, Capital One tiers, Chase tiers, Bank of America tiers, etc." All are US-market cards (reliable structured data on non-US issuers is much harder to verify — flag this to the user if truly global cards are wanted later).
+The first 10 were chosen to match the user's ask: "top travel cards in the world... Amex tiers, Capital One tiers, Chase tiers, Bank of America tiers, etc." 5 more were added 2026-08-21 as "lower tier, non-travel" examples (Discover, TD Bank). All are US-market cards (reliable structured data on non-US issuers is much harder to verify — flag this to the user if truly global cards are wanted later).
 
 | Card | Issuer | Tier position |
 |---|---|---|
@@ -50,11 +52,18 @@ Chosen to match the user's ask: "top travel cards in the world... Amex tiers, Ca
 | BofA Premium Rewards | Bank of America | 2 of 3 |
 | Citi Strata Premier | Citi | 2 of 3 (successor to discontinued Citi Prestige) |
 | Wells Fargo Autograph Journey | Wells Fargo | 2 of 3 (a new "Premier Autograph" tier launched above it Feb 2026, not yet mainstream) |
+| Discover it Cash Back | Discover | Flagship no-fee cash back card (parallel to Discover it Miles — Discover has no premium/annual-fee tier) |
+| Discover it Miles | Discover | Discover's only "travel-flavored" card; flat 1.5x, no premium tier above it |
+| TD Cash | TD Bank | Mid-tier cash back, below TD First Class Visa Signature |
+| TD Double Up | TD Bank | Mid-tier flat cash back (up to 2%, conditional — see flags) |
+| TD Clear | TD Bank | Bottom tier — **no rewards program at all**, monthly-fee-instead-of-interest structure |
 
 ### Data fields per card (see `cards-draft.json` for exact schema)
 
 Matches the 5 comparison points the user asked for, plus supporting fields:
-`id`, `name`, `issuer`, `network`, `annualFee` (+ optional note), `tier` (family/lineup/rank), `pointsProgram` (name, earning rates, redemption mechanics), `partnerships` (transfer partners by airline/hotel, co-brand, other), `perks` (array of name/value/note), `flags` (array of strings — open questions worth a manual spot-check).
+`id`, `name`, `issuer`, `network`, `annualFee` (+ optional `annualFeeNote` — used by TD Clear, whose "$0 annual fee" is misleading without the monthly-fee explanation; `ComparisonChart.jsx` renders this note under the fee figure when present), `tier` (family/lineup/rank), `pointsProgram` (name, earning rates, redemption mechanics — for cash-back cards use `name: "Cash Back"` and percentage rates like `"5%"` rather than points/miles multipliers; for a no-rewards card like TD Clear, don't leave `earningRates`/`redemption` empty arrays — the UI renders those sections' headers regardless, so an empty array looks broken; instead give one explicit entry like `{"rate": "—", "category": "This card has no cash back, points, or miles"}`), `partnerships` (transfer partners by airline/hotel, co-brand, other — empty arrays are fine and already handled; several cards genuinely have none), `perks` (array of name/value/note), `flags` (array of strings — open questions worth a manual spot-check).
+
+**Rate badge values must stay short** (`"5x"`, `"3%"`, not a full word like `"selectable"`) — the `.rate-badge` styling in both `ComparisonChart.css` and `CardDetail.css` is sized for compact tokens, and a single long unbreakable word can overflow its box even with `overflow-wrap: break-word` set (which is now set defensively in both files, but shortening the data is the real fix). Put any nuance in the `category` string instead, as most existing entries already do.
 
 ### Known open questions (flagged in the data, worth resolving before shipping)
 
@@ -65,12 +74,16 @@ Matches the 5 comparison points the user asked for, plus supporting fields:
 - **Citi Strata Premier** — transfer partner list may be incomplete (historically included Turkish Airlines, Qantas, Singapore KrisFlyer, Air France/KLM — not confirmed present in this pass); several insurance benefit dollar caps unconfirmed.
 - **Wells Fargo Autograph Journey** — purchase protection / extended warranty status is genuinely conflicting: the official Guide to Benefits omits them, but some third-party sites claim they exist (possibly conflating with the newer "Premier Autograph" card).
 - All **welcome bonus** figures are rotating promotional offers, not permanent card features — re-verify at build time rather than hardcoding.
+- **TD Cash** — the exact tiered rate for the 2 cardholder-selected quarterly categories wasn't fully itemized by research (only the default Dining 3%/Grocery 2% categories are confirmed); shown as "Pick 2" in the rate badge pending confirmation.
+- **TD Double Up** — the "up to 2%" is conditional: 1% on purchase + 1% only if redeemed into a TD deposit account, not an unconditional flat 2% (a common point of confusion with similar-sounding cards from other issuers). Sign-up bonus figure conflicts across sources (current official offer $200/$1,500 spend vs. an older press release's $75/$500 — used the current one). Also flagged as possibly not available in all states, unconfirmed which ones.
+- **TD Clear** — balance transfer fee couldn't be confirmed (source terms PDF was unreadable by the research tooling). The "no rewards at all" claim is high confidence (two independent sources) but flagged given how unusual the product structure is.
+- **Discover (both cards)** — the $0 foreign transaction fee is well-corroborated by secondary sources but wasn't found explicitly itemized in the official page text captured; same for the exact late-fee amount.
 
 ## UI direction (decided 2026-08-20, built same day)
 
 Rejected a flat grid/list of all 10 cards in favor of an issuer-grouped structure:
 
-- **One route per issuer**: `/amex`, `/chase`, `/capital-one`, `/bank-of-america`, `/citi`, `/wells-fargo` (route slugs and display names live in `app/src/constants.js`'s `ISSUERS` array — add an issuer there and it automatically gets a route, nav link, and home-page tile). Each route (`app/src/pages/IssuerPage.jsx`) shows a **comparison chart** (`app/src/components/ComparisonChart.jsx`) of that issuer's cards when there are 2+, e.g. the Amex page compares Platinum vs. Gold row-by-row across annual fee, tier, points program, top earning rates, perks, transfer-partner count.
+- **One route per issuer**: `/amex`, `/chase`, `/capital-one`, `/bank-of-america`, `/citi`, `/wells-fargo`, `/discover`, `/td-bank` (route slugs and display names live in `app/src/constants.js`'s `ISSUERS` array — add an issuer there and it automatically gets a route, nav link, and home-page tile; this is exactly how Discover and TD Bank were added). Each route (`app/src/pages/IssuerPage.jsx`) shows a **comparison chart** (`app/src/components/ComparisonChart.jsx`) of that issuer's cards when there are 2+, e.g. the Amex page compares Platinum vs. Gold row-by-row across annual fee, tier, points program, top earning rates, perks, transfer-partner count.
 - **Tabs below the chart** (`app/src/components/CardTabs.jsx`) let the user click a card name to swap in that card's full detail panel (`app/src/components/CardDetail.jsx` — all perks, partnerships, points system, plus any `flags`) without leaving the page. Transfer partners (airlines/hotels) render as individual chips with a count in the label (e.g. "Airline transfer partners (17)"), not a comma-joined line — long partner lists were hard to scan as prose. Reuses the same `.chip` pill style as the tier lineup for visual consistency.
 - **A separate cross-issuer compare tool** at `/compare` (`app/src/pages/ComparePage.jsx`) lets the user checkbox-select 2–4 cards from *any* issuer and reuses the same `ComparisonChart`/`CardTabs`/`CardDetail` components.
 - **Citi and Wells Fargo currently have only one card each** in the dataset, so their issuer pages fall back to a single-card notice + detail panel instead of a comparison chart (handled automatically by `IssuerPage.jsx`'s `issuerCards.length` check — no special-casing needed elsewhere). Comparison charts for those issuers will appear automatically once a second card is added to `cards-draft.json`/`cards.json` for that issuer.
@@ -80,7 +93,7 @@ Design tokens (IBM Plex Sans/Serif/Mono, the "ledger" color palette) are shared 
 
 ## Next steps (when resuming this project)
 
-1. Walk through `data/cards-review.html` (or the live app itself) with the user and resolve the flagged items above — either by direct confirmation or a fresh round of research. Once confirmed, update both `data/cards-draft.json` and `app/src/data/cards.json` (currently identical copies).
+1. Walk through `data/cards-review.html` (or the live app itself) with the user and resolve the flagged items above — either by direct confirmation or a fresh round of research. Once confirmed, update both `data/cards-draft.json` and `app/src/data/cards.json` (currently identical copies). Note: `cards-review.html` was built for the original 10 cards (2026-08-19) and has **not** been regenerated for the 5 cards added 2026-08-21 — it's stale. Either regenerate it (same JSON-injection approach as originally, see git history) or retire it in favor of reviewing directly in the live app, which already surfaces `flags` per card.
 2. Consider researching the sibling Citi Strata ($0) and Citi Strata Elite ($595) cards (already named in the existing `citi-strata-premier` entry's `tier.lineup`) so Citi gets a real comparison chart — same idea for a second Wells Fargo card if desired.
-3. Revisit card scope later if the user wants more cards, business cards, or non-US issuers — deliberately out of scope for this first pass.
-4. No automated tests exist yet. Verification so far has been manual: `npm run lint` (oxlint, clean) plus interactive checks in the Browser pane (chart rendering, tab switching, cross-issuer compare, light/dark theme).
+3. Revisit card scope later if the user wants more cards (business cards, non-US issuers, more Discover/TD Bank tiers like TD Cash Secured or TD First Class Visa Signature) — deliberately out of scope for this pass.
+4. No automated tests exist yet. Verification so far has been manual: `npm run lint` (oxlint, clean) plus interactive checks in the Browser pane (chart rendering, tab switching, cross-issuer compare, light/dark theme, and — as of 2026-08-21 — a DOM-walking `scrollWidth > clientWidth` overflow check run via `javascript_tool` after any data/CSS change, which is how both the perk-value overflow and the "selectable" rate-badge overflow were caught; worth re-running that check whenever new card data is added, since it catches real bugs screenshots can miss).

@@ -109,6 +109,7 @@
   font-weight: 600;
   min-width: 2.6rem;
   font-family: 'IBM Plex Mono', monospace;
+  overflow-wrap: break-word;
 }
 
 .dim {

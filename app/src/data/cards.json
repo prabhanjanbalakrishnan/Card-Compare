@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers.",
-    "cardCount": 10
+    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request.",
+    "cardCount": 15
   },
   "cards": [
     {
@@ -13,15 +13,30 @@
       "annualFeeNote": "Raised from $695 in the 2025/2026 refresh.",
       "tier": {
         "family": "Amex Membership Rewards personal charge cards",
-        "lineup": ["Green ($150)", "Gold ($325)", "Platinum ($895)", "Centurion (invite-only, ~$10,000 initiation + $5,000/yr)"],
+        "lineup": [
+          "Green ($150)",
+          "Gold ($325)",
+          "Platinum ($895)",
+          "Centurion (invite-only, ~$10,000 initiation + $5,000/yr)"
+        ],
         "rank": "3 of 4 (Centurion is invite-only, not publicly applied for)"
       },
       "pointsProgram": {
         "name": "Membership Rewards",
         "earningRates": [
-          { "rate": "5x", "category": "Flights booked directly with airlines or via amextravel.com", "cap": "$500,000/yr, then 1x" },
-          { "rate": "5x", "category": "Prepaid hotels booked via Amex Travel" },
-          { "rate": "1x", "category": "Everything else" }
+          {
+            "rate": "5x",
+            "category": "Flights booked directly with airlines or via amextravel.com",
+            "cap": "$500,000/yr, then 1x"
+          },
+          {
+            "rate": "5x",
+            "category": "Prepaid hotels booked via Amex Travel"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
         ],
         "redemption": [
           "Transfer to airline/hotel partners (below)",
@@ -32,28 +47,96 @@
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Aer Lingus", "Aeromexico", "Air Canada (Aeroplan)", "Air France/KLM (Flying Blue)", "ANA", "Avianca (LifeMiles)", "British Airways", "Cathay Pacific", "Delta Air Lines", "Emirates", "Etihad Airways (status uncertain post-June 2026)", "Iberia", "JetBlue", "Qantas", "Qatar Airways", "Singapore Airlines", "Virgin Atlantic"],
-          "hotels": ["Hilton Honors (1:2)", "Marriott Bonvoy", "Choice Privileges"]
+          "airlines": [
+            "Aer Lingus",
+            "Aeromexico",
+            "Air Canada (Aeroplan)",
+            "Air France/KLM (Flying Blue)",
+            "ANA",
+            "Avianca (LifeMiles)",
+            "British Airways",
+            "Cathay Pacific",
+            "Delta Air Lines",
+            "Emirates",
+            "Etihad Airways (status uncertain post-June 2026)",
+            "Iberia",
+            "JetBlue",
+            "Qantas",
+            "Qatar Airways",
+            "Singapore Airlines",
+            "Virgin Atlantic"
+          ],
+          "hotels": [
+            "Hilton Honors (1:2)",
+            "Marriott Bonvoy",
+            "Choice Privileges"
+          ]
         },
         "coBrand": "Not a co-brand card itself; separate Amex Delta and Amex Hilton/Marriott co-brand families exist.",
         "other": "Complimentary Hilton Honors Gold + Marriott Bonvoy Gold status; Fine Hotels + Resorts curated hotel program."
       },
       "perks": [
-        { "name": "Fine Hotels + Resorts / Hotel Collection credit", "value": "up to $300 semi-annually (~$600/yr)" },
-        { "name": "Airline fee credit (one selected airline)", "value": "up to $200/yr" },
-        { "name": "Uber Cash", "value": "$15/mo + $20 in December (~$200/yr)" },
-        { "name": "Uber One membership credit", "value": "up to $120/yr" },
-        { "name": "CLEAR Plus membership credit", "value": "~$209-219/yr", "note": "exact figure conflicts between sources, flagged" },
-        { "name": "Global Entry / TSA PreCheck credit", "value": "$120 (Global Entry, 4yr) or $85 (TSA PreCheck, 4.5yr)" },
-        { "name": "Resy dining credit", "value": "up to $100/quarter (~$400/yr)" },
-        { "name": "Digital entertainment credit", "value": "up to $25/mo (~$300/yr)" },
-        { "name": "Equinox credit", "value": "up to $300/yr" },
-        { "name": "Walmart+ membership credit", "value": "~$155/yr" },
-        { "name": "Lululemon credit", "value": "up to $75/quarter (~$300/yr)" },
-        { "name": "Oura Ring credit", "value": "up to $200/yr", "note": "newer benefit, confirm still active" },
-        { "name": "Amex Global Lounge Collection", "value": "1,550+ lounges: Centurion Lounges, Priority Pass Select, Delta Sky Club (10 visits/yr on eligible Delta flights), Escape Lounges, Plaza Premium, Lufthansa lounges" },
-        { "name": "No foreign transaction fees" },
-        { "name": "Travel insurance suite", "note": "trip delay/cancellation, baggage, car rental — exact dollar caps not independently confirmed this pass" }
+        {
+          "name": "Fine Hotels + Resorts / Hotel Collection credit",
+          "value": "up to $300 semi-annually (~$600/yr)"
+        },
+        {
+          "name": "Airline fee credit (one selected airline)",
+          "value": "up to $200/yr"
+        },
+        {
+          "name": "Uber Cash",
+          "value": "$15/mo + $20 in December (~$200/yr)"
+        },
+        {
+          "name": "Uber One membership credit",
+          "value": "up to $120/yr"
+        },
+        {
+          "name": "CLEAR Plus membership credit",
+          "value": "~$209-219/yr",
+          "note": "exact figure conflicts between sources, flagged"
+        },
+        {
+          "name": "Global Entry / TSA PreCheck credit",
+          "value": "$120 (Global Entry, 4yr) or $85 (TSA PreCheck, 4.5yr)"
+        },
+        {
+          "name": "Resy dining credit",
+          "value": "up to $100/quarter (~$400/yr)"
+        },
+        {
+          "name": "Digital entertainment credit",
+          "value": "up to $25/mo (~$300/yr)"
+        },
+        {
+          "name": "Equinox credit",
+          "value": "up to $300/yr"
+        },
+        {
+          "name": "Walmart+ membership credit",
+          "value": "~$155/yr"
+        },
+        {
+          "name": "Lululemon credit",
+          "value": "up to $75/quarter (~$300/yr)"
+        },
+        {
+          "name": "Oura Ring credit",
+          "value": "up to $200/yr",
+          "note": "newer benefit, confirm still active"
+        },
+        {
+          "name": "Amex Global Lounge Collection",
+          "value": "1,550+ lounges: Centurion Lounges, Priority Pass Select, Delta Sky Club (10 visits/yr on eligible Delta flights), Escape Lounges, Plaza Premium, Lufthansa lounges"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Travel insurance suite",
+          "note": "trip delay/cancellation, baggage, car rental — exact dollar caps not independently confirmed this pass"
+        }
       ],
       "flags": [
         "CLEAR+ credit exact amount: $219 vs $209 depending on source.",
@@ -70,39 +153,116 @@
       "annualFee": 325,
       "tier": {
         "family": "Amex Membership Rewards personal charge cards",
-        "lineup": ["Green ($150)", "Gold ($325)", "Platinum ($895)", "Centurion (invite-only)"],
+        "lineup": [
+          "Green ($150)",
+          "Gold ($325)",
+          "Platinum ($895)",
+          "Centurion (invite-only)"
+        ],
         "rank": "2 of 4"
       },
       "pointsProgram": {
         "name": "Membership Rewards",
         "earningRates": [
-          { "rate": "4x", "category": "Restaurants worldwide", "cap": "$50,000/yr, then 1x" },
-          { "rate": "4x", "category": "U.S. supermarkets", "cap": "$25,000/yr, then 1x" },
-          { "rate": "3x", "category": "Flights booked directly with airlines or via amextravel.com" },
-          { "rate": "2x", "category": "Prepaid car rentals and cruises via Amex Travel" },
-          { "rate": "1x", "category": "Everything else" }
+          {
+            "rate": "4x",
+            "category": "Restaurants worldwide",
+            "cap": "$50,000/yr, then 1x"
+          },
+          {
+            "rate": "4x",
+            "category": "U.S. supermarkets",
+            "cap": "$25,000/yr, then 1x"
+          },
+          {
+            "rate": "3x",
+            "category": "Flights booked directly with airlines or via amextravel.com"
+          },
+          {
+            "rate": "2x",
+            "category": "Prepaid car rentals and cruises via Amex Travel"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
         ],
-        "redemption": ["Pay with Points on Amex Travel", "Transfer to Membership Rewards partners", "Gift cards, marketplace purchases"]
+        "redemption": [
+          "Pay with Points on Amex Travel",
+          "Transfer to Membership Rewards partners",
+          "Gift cards, marketplace purchases"
+        ]
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Aer Lingus", "Aeromexico", "Air Canada (Aeroplan)", "Air France/KLM (Flying Blue)", "ANA", "Avianca (LifeMiles)", "British Airways", "Cathay Pacific", "Delta Air Lines", "Emirates", "Etihad Airways (status uncertain)", "Iberia", "JetBlue", "Qantas", "Qatar Airways", "Singapore Airlines", "Virgin Atlantic"],
-          "hotels": ["Hilton Honors (1:2)", "Marriott Bonvoy", "Choice Privileges"]
+          "airlines": [
+            "Aer Lingus",
+            "Aeromexico",
+            "Air Canada (Aeroplan)",
+            "Air France/KLM (Flying Blue)",
+            "ANA",
+            "Avianca (LifeMiles)",
+            "British Airways",
+            "Cathay Pacific",
+            "Delta Air Lines",
+            "Emirates",
+            "Etihad Airways (status uncertain)",
+            "Iberia",
+            "JetBlue",
+            "Qantas",
+            "Qatar Airways",
+            "Singapore Airlines",
+            "Virgin Atlantic"
+          ],
+          "hotels": [
+            "Hilton Honors (1:2)",
+            "Marriott Bonvoy",
+            "Choice Privileges"
+          ]
         },
         "coBrand": "Not a co-brand card itself.",
         "other": "Hertz Five Star complimentary status; The Hotel Collection curated program."
       },
       "perks": [
-        { "name": "Dining credit", "value": "up to $120/yr ($10/mo)" },
-        { "name": "Resy credit", "value": "up to $100/yr ($50 per half-year)" },
-        { "name": "Dunkin' credit", "value": "up to $84/yr ($7/mo)", "note": "confirm still active" },
-        { "name": "Uber Cash", "value": "$120/yr ($10/mo)" },
-        { "name": "Hotel Collection credit", "value": "$100 on 2+ night bookings via Amex Travel" },
-        { "name": "Hertz Five Star status" },
-        { "name": "Trip delay insurance", "value": "up to $300/trip" },
-        { "name": "Baggage insurance", "value": "up to $1,250 carry-on / $500 checked" },
-        { "name": "No foreign transaction fees" },
-        { "name": "No airport lounge access", "note": "Platinum/Centurion-only benefit" }
+        {
+          "name": "Dining credit",
+          "value": "up to $120/yr ($10/mo)"
+        },
+        {
+          "name": "Resy credit",
+          "value": "up to $100/yr ($50 per half-year)"
+        },
+        {
+          "name": "Dunkin' credit",
+          "value": "up to $84/yr ($7/mo)",
+          "note": "confirm still active"
+        },
+        {
+          "name": "Uber Cash",
+          "value": "$120/yr ($10/mo)"
+        },
+        {
+          "name": "Hotel Collection credit",
+          "value": "$100 on 2+ night bookings via Amex Travel"
+        },
+        {
+          "name": "Hertz Five Star status"
+        },
+        {
+          "name": "Trip delay insurance",
+          "value": "up to $300/trip"
+        },
+        {
+          "name": "Baggage insurance",
+          "value": "up to $1,250 carry-on / $500 checked"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "No airport lounge access",
+          "note": "Platinum/Centurion-only benefit"
+        }
       ],
       "flags": [
         "Welcome bonus not captured — treat as a live/rotating promotional figure to fetch at build time.",
@@ -117,17 +277,35 @@
       "annualFee": 95,
       "tier": {
         "family": "Chase Sapphire lineup",
-        "lineup": ["Sapphire Preferred ($95)", "Sapphire Reserve ($795)"],
+        "lineup": [
+          "Sapphire Preferred ($95)",
+          "Sapphire Reserve ($795)"
+        ],
         "rank": "1 of 2 (entry/mid tier)"
       },
       "pointsProgram": {
         "name": "Ultimate Rewards",
         "earningRates": [
-          { "rate": "5x", "category": "Chase Travel purchases" },
-          { "rate": "3x", "category": "Dining (incl. takeout/delivery), gas & EV charging, vacation rentals, online groceries (excl. Target/Walmart/wholesale clubs), top streaming" },
-          { "rate": "2x", "category": "Other travel booked outside Chase Travel" },
-          { "rate": "5x", "category": "Lyft rides (promo through 9/30/2027)" },
-          { "rate": "1x", "category": "Everything else" }
+          {
+            "rate": "5x",
+            "category": "Chase Travel purchases"
+          },
+          {
+            "rate": "3x",
+            "category": "Dining (incl. takeout/delivery), gas & EV charging, vacation rentals, online groceries (excl. Target/Walmart/wholesale clubs), top streaming"
+          },
+          {
+            "rate": "2x",
+            "category": "Other travel booked outside Chase Travel"
+          },
+          {
+            "rate": "5x",
+            "category": "Lyft rides (promo through 9/30/2027)"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
         ],
         "redemption": [
           "Chase Travel portal: points worth 1.25x",
@@ -137,24 +315,73 @@
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Aer Lingus", "Air Canada", "Air France/KLM", "British Airways", "Iberia", "JetBlue", "Singapore Airlines", "Southwest", "United", "Virgin Atlantic"],
-          "hotels": ["IHG One Rewards", "Marriott Bonvoy", "World of Hyatt (ratio downgrade noted above)", "Wyndham Rewards"]
+          "airlines": [
+            "Aer Lingus",
+            "Air Canada",
+            "Air France/KLM",
+            "British Airways",
+            "Iberia",
+            "JetBlue",
+            "Singapore Airlines",
+            "Southwest",
+            "United",
+            "Virgin Atlantic"
+          ],
+          "hotels": [
+            "IHG One Rewards",
+            "Marriott Bonvoy",
+            "World of Hyatt (ratio downgrade noted above)",
+            "Wyndham Rewards"
+          ]
         },
         "coBrand": "Not a co-brand card.",
         "other": null
       },
       "perks": [
-        { "name": "Chase Travel hotel credit", "value": "$100/yr", "note": "doubled from $50 in June 2026 refresh" },
-        { "name": "Global Entry / TSA PreCheck / NEXUS credit", "value": "up to $120 every 4 years" },
-        { "name": "Apple TV subscription", "value": "1 year complimentary, activate by 12/31/2026" },
-        { "name": "DashPass (DoorDash) membership", "value": "1 year complimentary + $10/mo promo credit" },
-        { "name": "Trip cancellation/interruption insurance", "value": "up to $20,000/trip" },
-        { "name": "Trip delay reimbursement", "value": "up to $500" },
-        { "name": "Baggage delay insurance", "value": "$100/day x 5 days" },
-        { "name": "Primary auto rental CDW", "value": "up to $60,000" },
-        { "name": "Purchase protection", "value": "120 days, up to $500/item" },
-        { "name": "No foreign transaction fees" },
-        { "name": "No lounge access", "note": "Reserve-only" }
+        {
+          "name": "Chase Travel hotel credit",
+          "value": "$100/yr",
+          "note": "doubled from $50 in June 2026 refresh"
+        },
+        {
+          "name": "Global Entry / TSA PreCheck / NEXUS credit",
+          "value": "up to $120 every 4 years"
+        },
+        {
+          "name": "Apple TV subscription",
+          "value": "1 year complimentary, activate by 12/31/2026"
+        },
+        {
+          "name": "DashPass (DoorDash) membership",
+          "value": "1 year complimentary + $10/mo promo credit"
+        },
+        {
+          "name": "Trip cancellation/interruption insurance",
+          "value": "up to $20,000/trip"
+        },
+        {
+          "name": "Trip delay reimbursement",
+          "value": "up to $500"
+        },
+        {
+          "name": "Baggage delay insurance",
+          "value": "$100/day x 5 days"
+        },
+        {
+          "name": "Primary auto rental CDW",
+          "value": "up to $60,000"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "120 days, up to $500/item"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "No lounge access",
+          "note": "Reserve-only"
+        }
       ],
       "flags": [
         "Hyatt 1:1 -> 4:3 transfer downgrade corroborated by secondary sources only (403s on primary articles) — recommend a manual check.",
@@ -170,17 +397,35 @@
       "annualFeeNote": "Plus $195 per authorized user. Raised from $550 in the late-2024 refresh.",
       "tier": {
         "family": "Chase Sapphire lineup",
-        "lineup": ["Sapphire Preferred ($95)", "Sapphire Reserve ($795)"],
+        "lineup": [
+          "Sapphire Preferred ($95)",
+          "Sapphire Reserve ($795)"
+        ],
         "rank": "2 of 2 (top tier)"
       },
       "pointsProgram": {
         "name": "Ultimate Rewards",
         "earningRates": [
-          { "rate": "8x", "category": "Chase Travel purchases" },
-          { "rate": "4x", "category": "Booking directly with an airline or hotel" },
-          { "rate": "3x", "category": "Dining worldwide, incl. eligible delivery" },
-          { "rate": "10x", "category": "Peloton hardware/accessories, capped at 50,000 points total" },
-          { "rate": "1x", "category": "Everything else" }
+          {
+            "rate": "8x",
+            "category": "Chase Travel purchases"
+          },
+          {
+            "rate": "4x",
+            "category": "Booking directly with an airline or hotel"
+          },
+          {
+            "rate": "3x",
+            "category": "Dining worldwide, incl. eligible delivery"
+          },
+          {
+            "rate": "10x",
+            "category": "Peloton hardware/accessories, capped at 50,000 points total"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
         ],
         "redemption": [
           "Points Boost via Chase Travel: up to 2x value on select hotels/premium cabins",
@@ -190,28 +435,88 @@
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Aer Lingus", "Air Canada", "Air France/KLM", "British Airways", "Iberia", "JetBlue", "Singapore Airlines", "Southwest", "United", "Virgin Atlantic"],
-          "hotels": ["IHG One Rewards", "Marriott Bonvoy", "World of Hyatt", "Wyndham Rewards"]
+          "airlines": [
+            "Aer Lingus",
+            "Air Canada",
+            "Air France/KLM",
+            "British Airways",
+            "Iberia",
+            "JetBlue",
+            "Singapore Airlines",
+            "Southwest",
+            "United",
+            "Virgin Atlantic"
+          ],
+          "hotels": [
+            "IHG One Rewards",
+            "Marriott Bonvoy",
+            "World of Hyatt",
+            "Wyndham Rewards"
+          ]
         },
         "coBrand": "Not a co-brand card.",
         "other": "Complimentary IHG Platinum Elite through 12/31/2027; limited-time Marriott Bonvoy Gold Elite offer."
       },
       "perks": [
-        { "name": "Annual flexible travel credit", "value": "$300/yr, auto-applied" },
-        { "name": "The Edit hotel credit", "value": "up to $500/yr ($250/transaction cap, 2-night min)", "note": "effective Jan 1, 2026" },
-        { "name": "Select luxury hotel chains credit", "value": "up to $250 through 12/31/2026 (IHG, Montage, Pendry, Omni, Virgin, Minor, Pan Pacific)" },
-        { "name": "Global Entry / TSA PreCheck / NEXUS credit", "value": "up to $120 every 4 years" },
-        { "name": "Lounge access", "value": "Chase Sapphire Lounge by The Club (+2 guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges" },
-        { "name": "Dining credit", "value": "up to $300/yr via Exclusive Tables program" },
-        { "name": "Apple TV + Apple Music", "value": "complimentary through 6/22/2027 (~$288/yr)" },
-        { "name": "DoorDash", "value": "up to $300/yr credits + DashPass" },
-        { "name": "Lyft credits", "value": "up to $120/yr through 9/30/2027" },
-        { "name": "StubHub/viagogo credits", "value": "up to $300/yr" },
-        { "name": "Travel Designer concierge service" },
-        { "name": "Trip cancellation/interruption insurance", "value": "up to $10,000/traveler, $20,000/trip" },
-        { "name": "Primary auto rental coverage", "value": "up to $75,000" },
-        { "name": "Purchase protection", "value": "up to $10,000/item" },
-        { "name": "No foreign transaction fees" }
+        {
+          "name": "Annual flexible travel credit",
+          "value": "$300/yr, auto-applied"
+        },
+        {
+          "name": "The Edit hotel credit",
+          "value": "up to $500/yr ($250/transaction cap, 2-night min)",
+          "note": "effective Jan 1, 2026"
+        },
+        {
+          "name": "Select luxury hotel chains credit",
+          "value": "up to $250 through 12/31/2026 (IHG, Montage, Pendry, Omni, Virgin, Minor, Pan Pacific)"
+        },
+        {
+          "name": "Global Entry / TSA PreCheck / NEXUS credit",
+          "value": "up to $120 every 4 years"
+        },
+        {
+          "name": "Lounge access",
+          "value": "Chase Sapphire Lounge by The Club (+2 guests), Priority Pass (1,300+ lounges), Air Canada Maple Leaf Lounges"
+        },
+        {
+          "name": "Dining credit",
+          "value": "up to $300/yr via Exclusive Tables program"
+        },
+        {
+          "name": "Apple TV + Apple Music",
+          "value": "complimentary through 6/22/2027 (~$288/yr)"
+        },
+        {
+          "name": "DoorDash",
+          "value": "up to $300/yr credits + DashPass"
+        },
+        {
+          "name": "Lyft credits",
+          "value": "up to $120/yr through 9/30/2027"
+        },
+        {
+          "name": "StubHub/viagogo credits",
+          "value": "up to $300/yr"
+        },
+        {
+          "name": "Travel Designer concierge service"
+        },
+        {
+          "name": "Trip cancellation/interruption insurance",
+          "value": "up to $10,000/traveler, $20,000/trip"
+        },
+        {
+          "name": "Primary auto rental coverage",
+          "value": "up to $75,000"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "up to $10,000/item"
+        },
+        {
+          "name": "No foreign transaction fees"
+        }
       ],
       "flags": [
         "This is the POST late-2024/2025 refresh version of the card — most lifestyle credits (DoorDash/Lyft/Apple/StubHub) date to that overhaul and many carry hard expiration dates (2026/2027) as time-limited promos, not permanent features.",
@@ -226,16 +531,32 @@
       "annualFee": 395,
       "tier": {
         "family": "Capital One Venture lineup",
-        "lineup": ["VentureOne ($0)", "Venture ($95)", "Venture X ($395)"],
+        "lineup": [
+          "VentureOne ($0)",
+          "Venture ($95)",
+          "Venture X ($395)"
+        ],
         "rank": "3 of 3 (top tier)"
       },
       "pointsProgram": {
         "name": "Capital One Miles",
         "earningRates": [
-          { "rate": "10x", "category": "Hotels & rental cars via Capital One Travel" },
-          { "rate": "5x", "category": "Flights & vacation rentals via Capital One Travel" },
-          { "rate": "5x", "category": "Capital One Entertainment purchases" },
-          { "rate": "2x", "category": "Everything else" }
+          {
+            "rate": "10x",
+            "category": "Hotels & rental cars via Capital One Travel"
+          },
+          {
+            "rate": "5x",
+            "category": "Flights & vacation rentals via Capital One Travel"
+          },
+          {
+            "rate": "5x",
+            "category": "Capital One Entertainment purchases"
+          },
+          {
+            "rate": "2x",
+            "category": "Everything else"
+          }
         ],
         "redemption": [
           "Capital One Travel portal",
@@ -246,22 +567,72 @@
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Aeromexico", "Air Canada Aeroplan", "Avianca LifeMiles", "British Airways", "Cathay Pacific", "Etihad Guest", "Finnair Plus", "Air France/KLM Flying Blue", "Qantas", "Qatar Airways", "Singapore Airlines KrisFlyer", "TAP Miles&Go", "Turkish Airlines", "Virgin Red", "Emirates Skywards (2:1.5)", "EVA Air (2:1.5)", "Japan Airlines (2:1.5)", "JetBlue (5:3)"],
-          "hotels": ["Choice Privileges (1:1)", "Wyndham Rewards (1:1)", "I Prefer Hotel Rewards (1:2)", "Accor Live Limitless (2:1)"]
+          "airlines": [
+            "Aeromexico",
+            "Air Canada Aeroplan",
+            "Avianca LifeMiles",
+            "British Airways",
+            "Cathay Pacific",
+            "Etihad Guest",
+            "Finnair Plus",
+            "Air France/KLM Flying Blue",
+            "Qantas",
+            "Qatar Airways",
+            "Singapore Airlines KrisFlyer",
+            "TAP Miles&Go",
+            "Turkish Airlines",
+            "Virgin Red",
+            "Emirates Skywards (2:1.5)",
+            "EVA Air (2:1.5)",
+            "Japan Airlines (2:1.5)",
+            "JetBlue (5:3)"
+          ],
+          "hotels": [
+            "Choice Privileges (1:1)",
+            "Wyndham Rewards (1:1)",
+            "I Prefer Hotel Rewards (1:2)",
+            "Accor Live Limitless (2:1)"
+          ]
         },
         "coBrand": "None.",
         "other": "PRIOR subscription ($149 value, complimentary); The Cultivist membership (50% off, up to 2 years); Hertz Gold Plus Rewards status upgrade."
       },
       "perks": [
-        { "name": "Annual Capital One Travel credit", "value": "$300/yr" },
-        { "name": "Anniversary bonus miles", "value": "10,000 miles/yr (~$100 value)" },
-        { "name": "Lounge access", "value": "Capital One Lounges + 1,300+ Priority Pass lounges" },
-        { "name": "Global Entry / TSA PreCheck credit", "value": "up to $120, once per 4 years" },
-        { "name": "Premier Collection hotel credit", "value": "up to $100/stay" },
-        { "name": "Lifestyle Collection hotel/rental credit", "value": "up to $50/stay" },
-        { "name": "Cell phone protection", "value": "up to $800 reimbursement", "note": "official page only, not independently cross-checked" },
-        { "name": "No foreign transaction fees" },
-        { "name": "Miles never expire, no blackout dates" }
+        {
+          "name": "Annual Capital One Travel credit",
+          "value": "$300/yr"
+        },
+        {
+          "name": "Anniversary bonus miles",
+          "value": "10,000 miles/yr (~$100 value)"
+        },
+        {
+          "name": "Lounge access",
+          "value": "Capital One Lounges + 1,300+ Priority Pass lounges"
+        },
+        {
+          "name": "Global Entry / TSA PreCheck credit",
+          "value": "up to $120, once per 4 years"
+        },
+        {
+          "name": "Premier Collection hotel credit",
+          "value": "up to $100/stay"
+        },
+        {
+          "name": "Lifestyle Collection hotel/rental credit",
+          "value": "up to $50/stay"
+        },
+        {
+          "name": "Cell phone protection",
+          "value": "up to $800 reimbursement",
+          "note": "official page only, not independently cross-checked"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Miles never expire, no blackout dates"
+        }
       ],
       "flags": [
         "$800 cell phone protection, PRIOR subscription, and Cultivist discount sourced from official page only — worth a quick verification.",
@@ -276,36 +647,80 @@
       "annualFee": 95,
       "tier": {
         "family": "Capital One Venture lineup",
-        "lineup": ["VentureOne ($0)", "Venture ($95)", "Venture X ($395)"],
+        "lineup": [
+          "VentureOne ($0)",
+          "Venture ($95)",
+          "Venture X ($395)"
+        ],
         "rank": "2 of 3 (middle tier)"
       },
       "pointsProgram": {
         "name": "Capital One Miles",
         "earningRates": [
-          { "rate": "5x", "category": "Hotels, vacation rentals, rental cars, activities via Capital One Travel" },
-          { "rate": "5x", "category": "Capital One Entertainment purchases" },
-          { "rate": "2x", "category": "Everything else" }
+          {
+            "rate": "5x",
+            "category": "Hotels, vacation rentals, rental cars, activities via Capital One Travel"
+          },
+          {
+            "rate": "5x",
+            "category": "Capital One Entertainment purchases"
+          },
+          {
+            "rate": "2x",
+            "category": "Everything else"
+          }
         ],
-        "redemption": ["Capital One Travel portal", "Purchase Eraser statement credit", "Same transfer partner network as Venture X", "Cash back, gift cards, Amazon/PayPal checkout"]
+        "redemption": [
+          "Capital One Travel portal",
+          "Purchase Eraser statement credit",
+          "Same transfer partner network as Venture X",
+          "Cash back, gift cards, Amazon/PayPal checkout"
+        ]
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Same ~15-18 airline partners as Venture X"],
-          "hotels": ["Choice Privileges", "Wyndham Rewards", "I Prefer Hotel Rewards", "Accor Live Limitless"]
+          "airlines": [
+            "Same ~15-18 airline partners as Venture X"
+          ],
+          "hotels": [
+            "Choice Privileges",
+            "Wyndham Rewards",
+            "I Prefer Hotel Rewards",
+            "Accor Live Limitless"
+          ]
         },
         "coBrand": "None.",
         "other": "Hertz Five Star status; Capital One Entertainment access."
       },
       "perks": [
-        { "name": "Global Entry / TSA PreCheck credit", "value": "up to $120, once per 4 years" },
-        { "name": "Lifestyle Collection experience credit", "value": "$50/stay" },
-        { "name": "Hertz Five Star status" },
-        { "name": "No foreign transaction fees" },
-        { "name": "Travel accident insurance" },
-        { "name": "Auto rental collision damage waiver" },
-        { "name": "No lounge access, no annual travel credit, no anniversary bonus", "note": "differentiators vs Venture X" }
+        {
+          "name": "Global Entry / TSA PreCheck credit",
+          "value": "up to $120, once per 4 years"
+        },
+        {
+          "name": "Lifestyle Collection experience credit",
+          "value": "$50/stay"
+        },
+        {
+          "name": "Hertz Five Star status"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Travel accident insurance"
+        },
+        {
+          "name": "Auto rental collision damage waiver"
+        },
+        {
+          "name": "No lounge access, no annual travel credit, no anniversary bonus",
+          "note": "differentiators vs Venture X"
+        }
       ],
-      "flags": ["Welcome bonus identical to Venture X at research time (75,000 miles/$4,000 spend) — rotating promo, re-check."]
+      "flags": [
+        "Welcome bonus identical to Venture X at research time (75,000 miles/$4,000 spend) — rotating promo, re-check."
+      ]
     },
     {
       "id": "bofa-premium-rewards",
@@ -315,30 +730,65 @@
       "annualFee": 95,
       "tier": {
         "family": "Bank of America travel rewards lineup",
-        "lineup": ["Travel Rewards ($0)", "Premium Rewards ($95)", "Premium Rewards Elite ($550)"],
+        "lineup": [
+          "Travel Rewards ($0)",
+          "Premium Rewards ($95)",
+          "Premium Rewards Elite ($550)"
+        ],
         "rank": "2 of 3 (middle tier)"
       },
       "pointsProgram": {
         "name": "BofA Travel Rewards points (fixed value)",
         "earningRates": [
-          { "rate": "2x", "category": "Travel purchases" },
-          { "rate": "2x", "category": "Dining purchases" },
-          { "rate": "1.5x", "category": "Everything else" }
+          {
+            "rate": "2x",
+            "category": "Travel purchases"
+          },
+          {
+            "rate": "2x",
+            "category": "Dining purchases"
+          },
+          {
+            "rate": "1.5x",
+            "category": "Everything else"
+          }
         ],
-        "redemption": ["1 cent/point flat value", "Cash deposit to BofA/Merrill accounts, statement credit, gift cards, or BofA Travel"]
+        "redemption": [
+          "1 cent/point flat value",
+          "Cash deposit to BofA/Merrill accounts, statement credit, gift cards, or BofA Travel"
+        ]
       },
       "partnerships": {
-        "transferPartners": { "airlines": [], "hotels": [] },
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
         "coBrand": "None — fixed-value points, no airline/hotel transfer partners.",
         "other": "BofA Rewards relationship bonus (renamed from Preferred Rewards, May 2026): Member $0-30k +10%, Preferred Plus $30k-100k +25%, Preferred Honors $100k-1M +50%, Premier $1M+ +75%, based on combined BofA/Merrill balances. Visa Signature Luxury Hotel Collection & concierge."
       },
       "perks": [
-        { "name": "Airline incidental credit", "value": "up to $100/yr" },
-        { "name": "Airport security credit (TSA PreCheck/Global Entry)", "value": "up to $100, every 4 years" },
-        { "name": "No foreign transaction fees" },
-        { "name": "Travel insurance", "value": "trip delay/cancellation, baggage delay, lost luggage, emergency evacuation" },
-        { "name": "Auto rental collision damage waiver" },
-        { "name": "No lounge access", "note": "Elite-only" }
+        {
+          "name": "Airline incidental credit",
+          "value": "up to $100/yr"
+        },
+        {
+          "name": "Airport security credit (TSA PreCheck/Global Entry)",
+          "value": "up to $100, every 4 years"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Travel insurance",
+          "value": "trip delay/cancellation, baggage delay, lost luggage, emergency evacuation"
+        },
+        {
+          "name": "Auto rental collision damage waiver"
+        },
+        {
+          "name": "No lounge access",
+          "note": "Elite-only"
+        }
       ],
       "flags": [
         "'$200 in travel credits' headline appears to just be the sum of the two $100 credits, not a separate third credit — worth confirming display format.",
@@ -354,33 +804,73 @@
       "annualFee": 550,
       "tier": {
         "family": "Bank of America travel rewards lineup",
-        "lineup": ["Travel Rewards ($0)", "Premium Rewards ($95)", "Premium Rewards Elite ($550)"],
+        "lineup": [
+          "Travel Rewards ($0)",
+          "Premium Rewards ($95)",
+          "Premium Rewards Elite ($550)"
+        ],
         "rank": "3 of 3 (top tier)"
       },
       "pointsProgram": {
         "name": "BofA Travel Rewards points (fixed value)",
         "earningRates": [
-          { "rate": "2x", "category": "Travel purchases" },
-          { "rate": "2x", "category": "Dining purchases" },
-          { "rate": "1.5x", "category": "Everything else" }
+          {
+            "rate": "2x",
+            "category": "Travel purchases"
+          },
+          {
+            "rate": "2x",
+            "category": "Dining purchases"
+          },
+          {
+            "rate": "1.5x",
+            "category": "Everything else"
+          }
         ],
-        "redemption": ["1 cent/point flat value (~1.25 cents effective on airfare via 20% discount)", "20% off airfare when redeeming points via BofA Travel", "Cash back, statement credit, gift cards, distinctive experiences"]
+        "redemption": [
+          "1 cent/point flat value (~1.25 cents effective on airfare via 20% discount)",
+          "20% off airfare when redeeming points via BofA Travel",
+          "Cash back, statement credit, gift cards, distinctive experiences"
+        ]
       },
       "partnerships": {
-        "transferPartners": { "airlines": [], "hotels": [] },
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
         "coBrand": "None — fixed-value points, no airline/hotel transfer partners.",
         "other": "Avis/Hertz/National VIP status & discounts (Visa Infinite Car Rental Benefits); Visa Infinite Luxury Hotel Collection; up to 4 complimentary Priority Pass Select memberships; same BofA Rewards relationship bonus tiers as base Premium Rewards."
       },
       "perks": [
-        { "name": "Airline incidental credit", "value": "up to $300/yr" },
-        { "name": "Lifestyle credit", "value": "up to $150/yr (streaming, food delivery, fitness, rideshare)" },
-        { "name": "Global Entry / TSA PreCheck credit", "value": "up to $120, every 4 years" },
-        { "name": "20% discount on airfare paid with points" },
-        { "name": "Lounge access", "value": "up to 4 Priority Pass Select memberships" },
-        { "name": "24/7 Visa Infinite Concierge" },
-        { "name": "No foreign transaction fees" }
+        {
+          "name": "Airline incidental credit",
+          "value": "up to $300/yr"
+        },
+        {
+          "name": "Lifestyle credit",
+          "value": "up to $150/yr (streaming, food delivery, fitness, rideshare)"
+        },
+        {
+          "name": "Global Entry / TSA PreCheck credit",
+          "value": "up to $120, every 4 years"
+        },
+        {
+          "name": "20% discount on airfare paid with points"
+        },
+        {
+          "name": "Lounge access",
+          "value": "up to 4 Priority Pass Select memberships"
+        },
+        {
+          "name": "24/7 Visa Infinite Concierge"
+        },
+        {
+          "name": "No foreign transaction fees"
+        }
       ],
-      "flags": ["BofA Rewards relationship-bonus tier percentages (25/50/75%) confirmed via secondary source only."]
+      "flags": [
+        "BofA Rewards relationship-bonus tier percentages (25/50/75%) confirmed via secondary source only."
+      ]
     },
     {
       "id": "citi-strata-premier",
@@ -390,37 +880,92 @@
       "annualFee": 95,
       "tier": {
         "family": "Citi Strata lineup",
-        "lineup": ["Citi Strata ($0)", "Citi Strata Premier ($95)", "Citi Strata Elite ($595)"],
+        "lineup": [
+          "Citi Strata ($0)",
+          "Citi Strata Premier ($95)",
+          "Citi Strata Elite ($595)"
+        ],
         "rank": "2 of 3 (middle tier)",
         "note": "Direct successor to the discontinued Citi Prestige/Citi Premier."
       },
       "pointsProgram": {
         "name": "ThankYou Points",
         "earningRates": [
-          { "rate": "10x", "category": "Hotels, cars, attractions via Citi Travel portal" },
-          { "rate": "3x", "category": "Air travel & other hotels (not via portal), restaurants, supermarkets, gas & EV charging" },
-          { "rate": "1x", "category": "Everything else" }
+          {
+            "rate": "10x",
+            "category": "Hotels, cars, attractions via Citi Travel portal"
+          },
+          {
+            "rate": "3x",
+            "category": "Air travel & other hotels (not via portal), restaurants, supermarkets, gas & EV charging"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
         ],
-        "redemption": ["Transfer to airline/hotel partners", "Book via Citi Travel portal", "Shop with points (Amazon/CVS.com)", "Cash back via check/statement credit/deposit, gift cards"]
+        "redemption": [
+          "Transfer to airline/hotel partners",
+          "Book via Citi Travel portal",
+          "Shop with points (Amazon/CVS.com)",
+          "Cash back via check/statement credit/deposit, gift cards"
+        ]
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["American Airlines AAdvantage", "JetBlue TrueBlue", "Virgin Atlantic Flying Club", "Cathay Pacific Asia Miles", "EVA Air Infinity MileageLands"],
-          "hotels": ["Choice Hotels Privileges", "The Leading Hotels of the World"]
+          "airlines": [
+            "American Airlines AAdvantage",
+            "JetBlue TrueBlue",
+            "Virgin Atlantic Flying Club",
+            "Cathay Pacific Asia Miles",
+            "EVA Air Infinity MileageLands"
+          ],
+          "hotels": [
+            "Choice Hotels Privileges",
+            "The Leading Hotels of the World"
+          ]
         },
         "coBrand": "None.",
         "other": null
       },
       "perks": [
-        { "name": "Annual hotel credit", "value": "$100 off a single Citi Travel-booked stay of $500+, once/year" },
-        { "name": "No foreign transaction fees" },
-        { "name": "Purchase protection", "value": "up to $10,000/incident, $50,000/yr", "note": "secondary source only" },
-        { "name": "Extended warranty", "value": "+24 months, up to $10,000/item", "note": "secondary source only" },
-        { "name": "Lyft credit", "value": "$5/mo" },
-        { "name": "Instacart credit", "value": "$10/mo" },
-        { "name": "Peacock credit", "value": "$3/mo" },
-        { "name": "Trip cancellation/interruption, trip delay, baggage, rental car coverage", "note": "existence confirmed, exact dollar caps not verified" },
-        { "name": "No Global Entry/TSA PreCheck credit", "note": "confirmed absent — that's a Strata Elite-only perk" }
+        {
+          "name": "Annual hotel credit",
+          "value": "$100 off a single Citi Travel-booked stay of $500+, once/year"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "up to $10,000/incident, $50,000/yr",
+          "note": "secondary source only"
+        },
+        {
+          "name": "Extended warranty",
+          "value": "+24 months, up to $10,000/item",
+          "note": "secondary source only"
+        },
+        {
+          "name": "Lyft credit",
+          "value": "$5/mo"
+        },
+        {
+          "name": "Instacart credit",
+          "value": "$10/mo"
+        },
+        {
+          "name": "Peacock credit",
+          "value": "$3/mo"
+        },
+        {
+          "name": "Trip cancellation/interruption, trip delay, baggage, rental car coverage",
+          "note": "existence confirmed, exact dollar caps not verified"
+        },
+        {
+          "name": "No Global Entry/TSA PreCheck credit",
+          "note": "confirmed absent — that's a Strata Elite-only perk"
+        }
       ],
       "flags": [
         "Transfer partner list may be incomplete — historically included Turkish Airlines, Qantas, Singapore KrisFlyer, Air France/KLM, not confirmed present in this pass.",
@@ -436,43 +981,482 @@
       "annualFee": 95,
       "tier": {
         "family": "Wells Fargo Autograph lineup",
-        "lineup": ["Autograph ($0)", "Autograph Journey ($95)", "Premier Autograph, Visa Infinite (new, Feb 2026 — eligibility rules still unclear)"],
+        "lineup": [
+          "Autograph ($0)",
+          "Autograph Journey ($95)",
+          "Premier Autograph, Visa Infinite (new, Feb 2026 — eligibility rules still unclear)"
+        ],
         "rank": "2 of 3 — flagship mainstream travel card; the new Premier Autograph tier above it is not yet fully mainstream"
       },
       "pointsProgram": {
         "name": "Wells Fargo Rewards points",
         "earningRates": [
-          { "rate": "5x", "category": "Hotels" },
-          { "rate": "4x", "category": "Airlines" },
-          { "rate": "3x", "category": "Other travel & restaurants" },
-          { "rate": "1x", "category": "Everything else" }
+          {
+            "rate": "5x",
+            "category": "Hotels"
+          },
+          {
+            "rate": "4x",
+            "category": "Airlines"
+          },
+          {
+            "rate": "3x",
+            "category": "Other travel & restaurants"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
         ],
-        "redemption": ["1 cent/point: cash back, gift cards, merchandise, or WF travel portal", "Transfer to airline/hotel partners starting at 1 point, no minimum", "No confirmed portal redemption bonus"]
+        "redemption": [
+          "1 cent/point: cash back, gift cards, merchandise, or WF travel portal",
+          "Transfer to airline/hotel partners starting at 1 point, no minimum",
+          "No confirmed portal redemption bonus"
+        ]
       },
       "partnerships": {
         "transferPartners": {
-          "airlines": ["Air France/KLM Flying Blue", "British Airways Avios", "Cathay Pacific Asia Miles", "JetBlue TrueBlue", "Virgin Atlantic Flying Club", "Avianca LifeMiles", "Iberia Avios", "Aer Lingus Avios"],
-          "hotels": ["Choice Privileges (1:2)", "Wyndham Rewards (1:2)"]
+          "airlines": [
+            "Air France/KLM Flying Blue",
+            "British Airways Avios",
+            "Cathay Pacific Asia Miles",
+            "JetBlue TrueBlue",
+            "Virgin Atlantic Flying Club",
+            "Avianca LifeMiles",
+            "Iberia Avios",
+            "Aer Lingus Avios"
+          ],
+          "hotels": [
+            "Choice Privileges (1:2)",
+            "Wyndham Rewards (1:2)"
+          ]
         },
         "coBrand": "None.",
         "other": null
       },
       "perks": [
-        { "name": "Annual airline credit", "value": "$50/yr for a single $50+ airline purchase" },
-        { "name": "Cell phone protection", "value": "up to $1,000/claim, $2,000/yr max, 2 claims/yr, $25 deductible" },
-        { "name": "Auto rental collision damage waiver", "value": "up to $50,000" },
-        { "name": "Lost baggage reimbursement", "value": "up to $3,000/trip" },
-        { "name": "Trip cancellation/interruption protection", "value": "up to $15,000/traveler, $20,000/account/yr" },
-        { "name": "Travel accident insurance", "value": "$1,000,000 automatic" },
-        { "name": "No foreign transaction fees" },
-        { "name": "No trip delay insurance", "note": "confirmed absent" },
-        { "name": "No Global Entry/TSA PreCheck credit", "note": "not found in any source" },
-        { "name": "Purchase protection/extended warranty", "note": "CONFLICTING — official Guide to Benefits omits these; some secondary sources claim they exist (possibly conflating with the newer Premier Autograph card). Treat as likely NOT included." }
+        {
+          "name": "Annual airline credit",
+          "value": "$50/yr for a single $50+ airline purchase"
+        },
+        {
+          "name": "Cell phone protection",
+          "value": "up to $1,000/claim, $2,000/yr max, 2 claims/yr, $25 deductible"
+        },
+        {
+          "name": "Auto rental collision damage waiver",
+          "value": "up to $50,000"
+        },
+        {
+          "name": "Lost baggage reimbursement",
+          "value": "up to $3,000/trip"
+        },
+        {
+          "name": "Trip cancellation/interruption protection",
+          "value": "up to $15,000/traveler, $20,000/account/yr"
+        },
+        {
+          "name": "Travel accident insurance",
+          "value": "$1,000,000 automatic"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "No trip delay insurance",
+          "note": "confirmed absent"
+        },
+        {
+          "name": "No Global Entry/TSA PreCheck credit",
+          "note": "not found in any source"
+        },
+        {
+          "name": "Purchase protection/extended warranty",
+          "note": "CONFLICTING — official Guide to Benefits omits these; some secondary sources claim they exist (possibly conflating with the newer Premier Autograph card). Treat as likely NOT included."
+        }
       ],
       "flags": [
         "Purchase protection/extended warranty status is genuinely unclear — flagged above.",
         "Transfer partner list is secondary-source-only (official pages 404'd on fetch) — worth a manual check.",
         "Welcome bonus (60,000 pts/$4,000 spend) is a rotating promo; don't confuse with the different 'Premier Autograph' card's 100,000-point offer."
+      ]
+    },
+    {
+      "id": "discover-it-cash-back",
+      "name": "Discover it® Cash Back",
+      "issuer": "Discover",
+      "network": "Discover",
+      "annualFee": 0,
+      "tier": {
+        "family": "Discover it lineup",
+        "lineup": [
+          "Discover it Secured ($0)",
+          "Discover it Student Cash Back ($0)",
+          "Discover it Student Chrome ($0)",
+          "Discover it Chrome ($0)",
+          "Discover it Cash Back ($0)",
+          "Discover it Miles ($0)"
+        ],
+        "rank": "Flagship no-fee cash back card — parallel top tier alongside Discover it Miles (Discover has no premium/annual-fee card)"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "5%",
+            "category": "Rotating quarterly bonus categories (activation required each quarter)",
+            "cap": "up to $1,500 in combined purchases/quarter, then 1%"
+          },
+          {
+            "rate": "1%",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "Cashback Match: Discover automatically matches all cash back earned in the first 12 months, no limit, no enrollment needed",
+          "Redeem as statement credit, direct deposit, or gift cards — no minimum to redeem",
+          "Cash back never expires while account is open"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": "Discover Deals: rotating cash-back/discount offers (roughly 5-20%) at partner retailers via the Discover Deals portal/app (account-wide, not card-specific)"
+      },
+      "perks": [
+        {
+          "name": "Cashback Match",
+          "value": "100% match of all cash back earned in year 1"
+        },
+        {
+          "name": "Free FICO Score 8",
+          "note": "via CreditWise; checking it doesn't affect your credit"
+        },
+        {
+          "name": "$0 fraud liability"
+        },
+        {
+          "name": "First late payment fee forgiven",
+          "note": "up to $41 for later late payments"
+        },
+        {
+          "name": "No penalty APR"
+        },
+        {
+          "name": "Freeze it",
+          "note": "instantly freeze your account from the app to block new purchases/cash advances"
+        },
+        {
+          "name": "Free Social Security number monitoring"
+        },
+        {
+          "name": "No foreign transaction fee",
+          "note": "well-corroborated by secondary sources, not explicit in the official fine print captured"
+        },
+        {
+          "name": "US-based customer service"
+        }
+      ],
+      "flags": [
+        "Foreign transaction fee ($0) corroborated by NerdWallet/CNBC/The Points Guy but not explicitly itemized on the official page text captured — worth a manual check of the Rates & Fees table.",
+        "Late fee amount ($0 first, up to $41 after) sourced from secondary aggregation, not independently pulled from Discover's Cardmember Agreement."
+      ]
+    },
+    {
+      "id": "discover-it-miles",
+      "name": "Discover it® Miles",
+      "issuer": "Discover",
+      "network": "Discover",
+      "annualFee": 0,
+      "tier": {
+        "family": "Discover it lineup",
+        "lineup": [
+          "Discover it Secured ($0)",
+          "Discover it Student Cash Back ($0)",
+          "Discover it Student Chrome ($0)",
+          "Discover it Chrome ($0)",
+          "Discover it Cash Back ($0)",
+          "Discover it Miles ($0)"
+        ],
+        "rank": "Discover's only 'travel-flavored' card — flat-rate, no premium travel tier above it in Discover's own lineup"
+      },
+      "pointsProgram": {
+        "name": "Miles (flat-rate, redeems like cash back)",
+        "earningRates": [
+          {
+            "rate": "1.5x",
+            "category": "Every purchase, no categories, no activation needed"
+          }
+        ],
+        "redemption": [
+          "Statement credit at 1 cent/mile (framed as travel redemption but not required to be travel spend)",
+          "Direct cash/bank deposit or PayPal at the same flat value",
+          "No blackout dates; miles never expire while account is open",
+          "Miles Match: Discover automatically matches all miles earned in the first 12 months"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": "Discover Deals applies account-wide (same program as Discover it Cash Back)"
+      },
+      "perks": [
+        {
+          "name": "Miles Match",
+          "value": "100% match of all miles earned in year 1"
+        },
+        {
+          "name": "No foreign transaction fee"
+        },
+        {
+          "name": "Free FICO Score 8",
+          "note": "via CreditWise"
+        },
+        {
+          "name": "$0 fraud liability"
+        },
+        {
+          "name": "First late payment fee forgiven"
+        },
+        {
+          "name": "No penalty APR"
+        },
+        {
+          "name": "Freeze it"
+        },
+        {
+          "name": "Free Social Security number monitoring"
+        },
+        {
+          "name": "No blackout dates on redemption",
+          "note": "statement-credit based, not an airline award chart"
+        }
+      ],
+      "flags": [
+        "Foreign transaction fee ($0) corroborated by secondary sources, not explicitly captured from official fine print.",
+        "Late fee policy assumed same as Discover it Cash Back (standard Discover-wide policy), not independently confirmed on this specific card's page."
+      ]
+    },
+    {
+      "id": "td-cash",
+      "name": "TD Cash Credit Card",
+      "issuer": "TD Bank",
+      "network": "Visa",
+      "annualFee": 0,
+      "tier": {
+        "family": "TD Bank personal credit card lineup",
+        "lineup": [
+          "TD FlexPay ($0, no rewards)",
+          "TD Clear ($10-20/mo, no rewards)",
+          "TD Cash Secured ($29)",
+          "TD Cash ($0)",
+          "TD Double Up ($0)",
+          "TD First Class Visa Signature ($89, waived yr1)"
+        ],
+        "rank": "Mid-tier cash back card — below TD First Class Visa Signature in prestige, roughly on par with TD Double Up depending on spend pattern"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "3%",
+            "category": "Dining (default category)"
+          },
+          {
+            "rate": "2%",
+            "category": "Grocery stores (default category)"
+          },
+          {
+            "rate": "Pick 2",
+            "category": "Cardholder can swap in 2 categories quarterly from Dining, Entertainment, Gas, Grocery Stores, Travel",
+            "note": "exact tiered rate for selected categories not fully itemized by research"
+          },
+          {
+            "rate": "1%",
+            "category": "Everything else (superstores/warehouse clubs always earn just 1% regardless of selection)"
+          }
+        ],
+        "redemption": [
+          "Cash back redeemable via standard statement credit/deposit options",
+          "$200 cash back sign-up bonus after $1,000 spend in first 90 days (current promotional offer)"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": null
+      },
+      "perks": [
+        {
+          "name": "0% intro APR",
+          "value": "12 billing cycles on purchases, 15 on balance transfers"
+        },
+        {
+          "name": "Foreign transaction fee",
+          "value": "3%",
+          "note": "unlike the premium travel cards in this app, TD Cash does charge a foreign transaction fee"
+        },
+        {
+          "name": "Visa cell phone protection",
+          "note": "pay your monthly cell bill with this card to qualify"
+        },
+        {
+          "name": "Visa Zero Liability"
+        }
+      ],
+      "flags": [
+        "Exact tiered rate for the 2 cardholder-selected quarterly categories wasn't fully itemized in research — confirm exact % before treating as final.",
+        "$200/$1,000-spend sign-up bonus is a rotating promotional offer, not a permanent feature."
+      ]
+    },
+    {
+      "id": "td-double-up",
+      "name": "TD Double Up Credit Card",
+      "issuer": "TD Bank",
+      "network": "Visa",
+      "annualFee": 0,
+      "tier": {
+        "family": "TD Bank personal credit card lineup",
+        "lineup": [
+          "TD FlexPay ($0, no rewards)",
+          "TD Clear ($10-20/mo, no rewards)",
+          "TD Cash Secured ($29)",
+          "TD Cash ($0)",
+          "TD Double Up ($0)",
+          "TD First Class Visa Signature ($89, waived yr1)"
+        ],
+        "rank": "Mid-tier flat cash back card — TD's flagship simple cash-back product"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "1%",
+            "category": "On every purchase"
+          },
+          {
+            "rate": "+1%",
+            "category": "Additional cash back ONLY when redeemed into an eligible TD Bank deposit account (checking/savings/money market) — not a 'pay your bill' mechanic like some other flat cash-back cards",
+            "cap": "up to 2% effective rate, contingent on redemption method"
+          }
+        ],
+        "redemption": [
+          "Full 2% requires redeeming into a TD deposit account; other redemption methods may only realize the base 1%",
+          "No limit, caps, or expiration on redemption per TD"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": null
+      },
+      "perks": [
+        {
+          "name": "0% intro APR",
+          "value": "12 billing cycles on purchases, 15 on balance transfers"
+        },
+        {
+          "name": "Foreign transaction fee",
+          "value": "3%"
+        },
+        {
+          "name": "Cell phone protection"
+        },
+        {
+          "name": "ID Navigator by Norton LifeLock"
+        },
+        {
+          "name": "Roadside Dispatch"
+        },
+        {
+          "name": "Visa Zero Liability"
+        }
+      ],
+      "flags": [
+        "The '1% + 1%' mechanic is conditional on redeeming into a TD deposit account — this is NOT an unconditional flat 2% card, a common point of confusion.",
+        "Sign-up bonus conflicts across sources: current official offer is $200 after $1,500 spend/90 days; an older press release cited $75 after $500 — treat $200/$1,500 as current, re-verify before publishing.",
+        "May not be available in all states per one secondary source — not independently confirmed which states."
+      ]
+    },
+    {
+      "id": "td-clear",
+      "name": "TD Clear Credit Card",
+      "issuer": "TD Bank",
+      "network": "Visa",
+      "annualFee": 0,
+      "annualFeeNote": "No traditional annual fee — instead charges a flat monthly fee in lieu of interest: $10/mo for a $1,000 limit or $20/mo for a $2,000 limit.",
+      "tier": {
+        "family": "TD Bank personal credit card lineup",
+        "lineup": [
+          "TD FlexPay ($0, no rewards)",
+          "TD Clear ($10-20/mo, no rewards)",
+          "TD Cash Secured ($29)",
+          "TD Cash ($0)",
+          "TD Double Up ($0)",
+          "TD First Class Visa Signature ($89, waived yr1)"
+        ],
+        "rank": "Bottom tier by rewards richness (zero rewards) — positioned as a no-interest, monthly-fee alternative for credit-averse consumers, not a rewards competitor"
+      },
+      "pointsProgram": {
+        "name": "No rewards program",
+        "earningRates": [
+          {
+            "rate": "—",
+            "category": "TD Clear does not earn cash back, points, or miles on any purchases"
+          }
+        ],
+        "redemption": [
+          "Not applicable — no rewards are earned on this card"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": null
+      },
+      "perks": [
+        {
+          "name": "No interest charged",
+          "note": "uses a flat monthly fee instead of APR-based financing"
+        },
+        {
+          "name": "Monthly fee",
+          "value": "$10/mo ($1,000 limit) or $20/mo ($2,000 limit)"
+        },
+        {
+          "name": "No foreign transaction fee"
+        },
+        {
+          "name": "No cash advance, over-limit, or returned payment fee stated"
+        },
+        {
+          "name": "Cell phone protection"
+        },
+        {
+          "name": "ID Navigator by Norton LifeLock"
+        },
+        {
+          "name": "Visa Zero Liability"
+        }
+      ],
+      "flags": [
+        "Balance transfer fee could not be confirmed (source terms PDF was unreadable) — flag before publishing if this matters.",
+        "Zero-rewards claim is high confidence (two independent sources) but still worth a spot-check given how unusual this product structure is."
       ]
     }
   ]

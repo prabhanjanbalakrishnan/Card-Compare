@@ -49,6 +49,15 @@
   color: var(--accent);
 }
 
+.fee-note {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+  margin-top: 0.2rem;
+  white-space: normal;
+}
+
 .chart-mini-list {
   margin: 0;
   padding: 0;
@@ -63,6 +72,7 @@
   font-family: 'IBM Plex Mono', monospace;
   font-weight: 600;
   color: var(--accent);
+  overflow-wrap: break-word;
 }
 
 .chart-more {
