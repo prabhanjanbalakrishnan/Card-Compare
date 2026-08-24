@@ -18,6 +18,9 @@ export default function SiteHeader() {
               {issuer.short}
             </NavLink>
           ))}
+          <NavLink to="/find-my-card" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+            Find My Card
+          </NavLink>
           <NavLink to="/compare" className={({ isActive }) => (isActive ? 'active' : undefined)}>
             Compare
           </NavLink>

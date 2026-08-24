@@ -1,0 +1,25 @@
+.bubble {
+  max-width: 75%;
+  padding: 0.65rem 0.95rem;
+  border-radius: 14px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+.bubble.bot {
+  align-self: flex-start;
+  background: var(--paper-raised);
+  border: 1px solid var(--rule);
+  color: var(--ink);
+  border-bottom-left-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.bubble.user {
+  align-self: flex-end;
+  background: var(--accent);
+  color: var(--paper-raised);
+  border-bottom-right-radius: 4px;
+}

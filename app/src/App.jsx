@@ -3,6 +3,7 @@ import SiteHeader from './components/SiteHeader.jsx'
 import Home from './pages/Home.jsx'
 import IssuerPage from './pages/IssuerPage.jsx'
 import ComparePage from './pages/ComparePage.jsx'
+import FindMyCardPage from './pages/FindMyCardPage.jsx'
 import { ISSUERS } from './constants.js'
 import cardsData from './data/cards.json'
 import './App.css'
@@ -22,6 +23,7 @@ export default function App() {
             element={<IssuerPage cards={cards} issuer={issuer} />}
           />
         ))}
+        <Route path="/find-my-card" element={<FindMyCardPage cards={cards} />} />
         <Route path="/compare" element={<ComparePage cards={cards} />} />
       </Routes>
     </HashRouter>

@@ -1,0 +1,132 @@
+.quiz-intro {
+  margin-bottom: 1.6rem;
+}
+
+.quiz-intro .eyebrow {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+
+.quiz-intro h1 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 700;
+  margin: 0 0 0.6rem;
+}
+
+.quiz-intro .lede {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.quiz-transcript {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.3rem;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  max-width: 640px;
+}
+
+.quiz-input-row {
+  display: flex;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  max-width: 640px;
+}
+
+.quiz-input-row.yesno {
+  justify-content: flex-start;
+}
+
+.quiz-input-row input {
+  flex: 1;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.92rem;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 8px;
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+.quiz-input-row input:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.quiz-btn {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid var(--rule-strong);
+  background: var(--paper-raised);
+  color: var(--ink);
+}
+
+.quiz-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.quiz-btn.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--paper-raised);
+}
+
+.quiz-btn.primary:disabled {
+  opacity: 0.5;
+}
+
+.quiz-btn.primary:hover:not(:disabled) {
+  color: var(--paper-raised);
+  opacity: 0.9;
+}
+
+.quiz-btn.restart-btn {
+  margin-top: 1.3rem;
+}
+
+.quiz-results h2 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.9rem;
+}
+
+.result-reasoning-list {
+  list-style: none;
+  margin: 0 0 0.5rem;
+  padding: 0;
+  max-width: 720px;
+}
+
+.result-reasoning-list li {
+  font-size: 0.9rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.result-reasoning-list li:last-child {
+  border-bottom: none;
+}
+
+.reason-text {
+  color: var(--ink-soft);
+}
+
+.over-budget-note {
+  color: var(--warn);
+  font-style: normal;
+}
