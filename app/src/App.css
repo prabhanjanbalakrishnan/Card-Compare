@@ -33,7 +33,7 @@
 
 .site-nav a {
   font-size: 0.85rem;
-  font-weight: 500;
+  font-weight: 400;
   padding: 0.4rem 0.7rem;
   border-radius: 6px;
   color: var(--ink-soft);
@@ -46,8 +46,33 @@
 }
 
 .site-nav a.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* "Find My Card" is a featured tool, not a filter link — it stays styled
+   as a solid button at all times so it reads as a distinct call to action
+   rather than one more tab among the issuer list. */
+.site-nav a.nav-cta {
   background: var(--accent);
-  color: var(--paper-raised);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 0.45rem 0.95rem;
+  margin: 0 0.15rem;
+}
+
+.site-nav a.nav-cta:hover {
+  background: var(--accent);
+  color: #ffffff;
+  filter: brightness(1.12);
+}
+
+.site-nav a.nav-cta.active {
+  background: var(--paper-raised);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 0.4rem 0.9rem;
 }
 
 .page {

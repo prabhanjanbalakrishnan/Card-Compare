@@ -91,7 +91,7 @@ Rejected a flat grid/list of all 10 cards in favor of an issuer-grouped structur
 - **Citi, Wells Fargo, and Apple currently have only one card each** in the dataset, so their issuer pages fall back to a single-card notice + detail panel instead of a comparison chart (handled automatically by `IssuerPage.jsx`'s `issuerCards.length` check — no special-casing needed elsewhere). For Apple this is permanent, not a research gap — Apple Card genuinely has no tiered lineup (confirmed via research; "Apple Card Family" is a sharing feature, not a different product). Comparison charts for Citi/Wells Fargo will appear automatically once a second card is added to `cards-draft.json`/`cards.json` for that issuer.
 - Home page (`/`, `app/src/pages/Home.jsx`) is a hub: tiles linking to each issuer (showing card count + names) plus a CTA to `/compare`.
 
-Design tokens (IBM Plex Sans/Serif/Mono, the "ledger" color palette) are shared between the original `data/cards-review.html` review page and the live app's `app/src/index.css`, so the two look/feel consistent.
+Design tokens (IBM Plex Sans/Serif/Mono) originally used a warm "ledger" light/dark palette shared with `data/cards-review.html`. As of 2026-08-25 the live app's palette diverged from that review page — see "Visual identity" below. `cards-review.html` was not updated (it's already stale/deprioritized per the Next Steps below) and still shows the original ledger colors if opened directly.
 
 ## "Find My Card" quiz (added 2026-08-24)
 
@@ -103,6 +103,12 @@ A guided, chat-bubble-style quiz at `/find-my-card` (nav link between the issuer
 - Wired up like `/compare`: a plain `<Route>` in `App.jsx` (not derived from the `ISSUERS` array) and a `NavLink` in `SiteHeader.jsx`.
 
 **Known limitation, not yet exercised live:** the "backfill when <3 cards pass the fee filter" path can't currently be triggered through the UI, because the dataset always has 6 cards at $0 annual fee — verified correct by code review, not by a live click-through. Worth an actual live test if the dataset ever shrinks below 3 cards at any given fee tier.
+
+## Visual identity (changed 2026-08-25)
+
+The app committed to a single dark, blue-accented "modern/tech" look at the user's request, replacing the old light-default/dark-media-query duality. All color tokens live in `app/src/index.css`'s `:root` block — there is no longer a `@media (prefers-color-scheme: dark)` branch; the dark/blue palette is the only theme, regardless of OS setting. Every other CSS file in `app/src` reads colors exclusively through these custom properties (`var(--paper)`, `--accent`, etc. — confirmed via a repo-wide grep for hardcoded hex values before making this change), so a palette swap here cascades everywhere with no other file edits needed.
+
+`app/src/components/SiteHeader.jsx` gives the "Find My Card" nav link a dedicated `.nav-cta` class (styled in `App.css`) instead of the plain `NavLink` styling every other nav item uses — it's a solid `--accent`-filled pill with white text at all times (not just on hover/active, unlike the other links), so it reads as a featured tool rather than one more issuer tab. Its `.active` state (when you're actually on `/find-my-card`) inverts to a `--paper-raised` background with `--accent` text + border, signaling "you are here" without looking broken or losing its brand color. If more nav CTAs are ever added, reuse `.nav-cta` rather than inventing a new pattern.
 
 ## Next steps (when resuming this project)
 
