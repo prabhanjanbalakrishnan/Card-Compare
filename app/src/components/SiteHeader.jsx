@@ -24,7 +24,10 @@ export default function SiteHeader() {
           >
             Find My Card
           </NavLink>
-          <NavLink to="/compare" className={({ isActive }) => (isActive ? 'active' : undefined)}>
+          <NavLink
+            to="/compare"
+            className={({ isActive }) => `nav-cta${isActive ? ' active' : ''}`}
+          >
             Compare
           </NavLink>
         </nav>
