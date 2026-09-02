@@ -25,7 +25,7 @@ The app is a full Vite/React SPA, so it can't be shared as a plain `localhost` l
 3. Sanity-check the inlined file before publishing: serve `dist/` with `python3 -m http.server <port>` and load it in a real browser tab (not `file://` — the Browser pane renders `file://` paths outside the project folder as static snapshots, which won't execute the JS, so it looks broken even when it isn't) to confirm no console errors and that text renders correctly (mojibake is the most likely failure mode).
 4. Publish via the Artifact tool. The published artifact is private by default — verifying it after publishing from an agent session isn't possible (no user login), so confirm correctness via step 3 first and ask the user to do a final click-through.
 
-**Published Artifact URL**: https://claude.ai/code/artifact/69c74289-17b2-4a5e-af17-0fa02a4177d4 — pass this as `url` when republishing an updated build so it updates in place instead of creating a new artifact. Kept in sync with `main` as of 2026-08-26 (includes the black/blue visual identity + prominent "Find My Card" nav CTA); republish after any further UI change if the user is actively sharing this link. Update this line if the user shares a different/newer URL.
+**Published Artifact URL**: https://claude.ai/code/artifact/69c74289-17b2-4a5e-af17-0fa02a4177d4 — pass this as `url` when republishing an updated build so it updates in place instead of creating a new artifact. Kept in sync with `main` as of 2026-09-02 (includes removal of the "draft dataset" home-page banner, see below); republish after any further UI change if the user is actively sharing this link. Update this line if the user shares a different/newer URL.
 
 ## Deployed as a real website (Vercel + GitHub)
 
