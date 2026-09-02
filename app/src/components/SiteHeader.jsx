@@ -1,5 +1,4 @@
 import { NavLink } from 'react-router-dom'
-import { ISSUERS } from '../constants.js'
 
 export default function SiteHeader() {
   return (
@@ -9,15 +8,6 @@ export default function SiteHeader() {
           Card Compare
         </NavLink>
         <nav className="site-nav">
-          {ISSUERS.map((issuer) => (
-            <NavLink
-              key={issuer.slug}
-              to={`/${issuer.slug}`}
-              className={({ isActive }) => (isActive ? 'active' : undefined)}
-            >
-              {issuer.short}
-            </NavLink>
-          ))}
           <NavLink
             to="/find-my-card"
             className={({ isActive }) => `nav-cta${isActive ? ' active' : ''}`}

@@ -75,8 +75,27 @@
   padding: 0.4rem 0.9rem;
 }
 
-.page {
-  max-width: 1120px;
+.app-shell {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem 6rem;
+  padding: 0 1.5rem;
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.app-content {
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.page {
+  padding: 2.5rem 0 6rem;
 }
