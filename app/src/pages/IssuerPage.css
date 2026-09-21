@@ -18,6 +18,30 @@
   margin: 0;
 }
 
+.issuer-intro-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.issuer-official-link {
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  padding: 0.3rem 0.8rem;
+  white-space: nowrap;
+}
+
+.issuer-official-link:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
 .single-card-note,
 .empty-note {
   font-family: 'IBM Plex Sans', sans-serif;

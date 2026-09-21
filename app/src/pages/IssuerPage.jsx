@@ -16,7 +16,19 @@ export default function IssuerPage({ cards, issuer }) {
     <main className="page">
       <header className="issuer-intro">
         <p className="eyebrow">Issuer</p>
-        <h1>{issuer.name}</h1>
+        <div className="issuer-intro-row">
+          <h1>{issuer.name}</h1>
+          {issuer.website && (
+            <a
+              className="issuer-official-link"
+              href={issuer.website}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View all {issuer.short} cards ↗
+            </a>
+          )}
+        </div>
       </header>
 
       {issuerCards.length === 0 && (

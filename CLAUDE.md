@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project overview
 
-A credit card comparison web app. Loosely mirrors the sibling `Pokemon Project` (static JSON dataset, no backend), but diverges in two ways specific to this project's needs: the dataset is small (16 cards) and hand-compiled from research rather than fetched from an API, and the app needs to be shareable as a standalone file (see "Publishing a shareable build" below) — so `app/src/App.jsx` **imports** `app/src/data/cards.json` directly as a JS module (bundled at build time) rather than fetching it at runtime, and routing uses `HashRouter` (not `BrowserRouter`) so it works with no server-side routing support.
+A credit card comparison web app. Loosely mirrors the sibling `Pokemon Project` (static JSON dataset, no backend), but diverges in two ways specific to this project's needs: the dataset is small (18 cards) and hand-compiled from research rather than fetched from an API, and the app needs to be shareable as a standalone file (see "Publishing a shareable build" below) — so `app/src/App.jsx` **imports** `app/src/data/cards.json` directly as a JS module (bundled at build time) rather than fetching it at runtime, and routing uses `HashRouter` (not `BrowserRouter`) so it works with no server-side routing support.
 
-Started as premium travel cards only; as of 2026-08-21 also covers lower-tier, non-travel cash-back cards (Discover, TD Bank) and single-product cards (Apple Card) at the user's request — the schema and components generalize to all of these (see "The 16 cards covered" below).
+Started as premium travel cards only; as of 2026-08-21 also covers lower-tier, non-travel cash-back cards (Discover, TD Bank) and single-product cards (Apple Card), and as of 2026-09-21 also covers Amex's no-fee/entry-fee cash-back lineup (Blue Cash Everyday, Blue Cash Preferred) — all at the user's request. The schema and components generalize to all of these (see "The 18 cards covered" below).
 
 ## Commands
 
@@ -47,14 +47,18 @@ The app (`app/`) is built and functional — issuer pages with comparison charts
 - [`data/cards-draft.json`](data/cards-draft.json) — the raw draft dataset, one entry per card
 - [`data/cards-review.html`](data/cards-review.html) — a standalone HTML review page (built with the `artifact-design` skill) rendering the dataset as a summary table + per-card dossiers, with flagged/uncertain fields called out in amber. Open this directly in a browser to review, or re-publish it as a Claude Artifact.
 
-### The 16 cards covered
+### The 18 cards covered
 
-The first 10 were chosen to match the user's ask: "top travel cards in the world... Amex tiers, Capital One tiers, Chase tiers, Bank of America tiers, etc." 5 more were added 2026-08-21 as "lower tier, non-travel" examples (Discover, TD Bank), plus Apple Card the same day. All are US-market cards (reliable structured data on non-US issuers is much harder to verify — flag this to the user if truly global cards are wanted later).
+The first 10 were chosen to match the user's ask: "top travel cards in the world... Amex tiers, Capital One tiers, Chase tiers, Bank of America tiers, etc." 5 more were added 2026-08-21 as "lower tier, non-travel" examples (Discover, TD Bank), plus Apple Card the same day. 2 more were added 2026-09-21: Amex's Blue Cash Everyday and Blue Cash Preferred, at the user's request for "lower tiered" Amex options. All are US-market cards (reliable structured data on non-US issuers is much harder to verify — flag this to the user if truly global cards are wanted later).
+
+**Amex Green Card was deliberately NOT added** (also requested 2026-09-21) — research turned up that Amex pulled it from new applications July 23, 2026 and renamed it "Classic Green" Aug 20, 2026 (only reachable now via downgrade from Gold/Platinum or as an existing cardholder), so the user chose to skip it rather than add a card new visitors can't actually apply for. The existing `amex-platinum`/`amex-gold` `tier.lineup` entries were updated to note this (with a matching `flags` entry) since they already referenced "Green ($150)" as part of the family lineup.
 
 | Card | Issuer | Tier position |
 |---|---|---|
 | Amex Platinum | American Express | 3 of 4 (Green < Gold < **Platinum** < Centurion, invite-only) |
 | Amex Gold | American Express | 2 of 4 |
+| Amex Blue Cash Everyday | American Express | 1 of 2 in the separate Blue Cash lineup (no annual fee) |
+| Amex Blue Cash Preferred | American Express | 2 of 2 in the separate Blue Cash lineup ($0 intro, $95 after year 1) |
 | Chase Sapphire Reserve | Chase | 2 of 2 (top) |
 | Chase Sapphire Preferred | Chase | 1 of 2 |
 | Capital One Venture X | Capital One | 3 of 3 (top) |
@@ -91,6 +95,7 @@ Matches the 5 comparison points the user asked for, plus supporting fields:
 - **TD Clear** — balance transfer fee couldn't be confirmed (source terms PDF was unreadable by the research tooling). The "no rewards at all" claim is high confidence (two independent sources) but flagged given how unusual the product structure is.
 - **Discover (both cards)** — the $0 foreign transaction fee is well-corroborated by secondary sources but wasn't found explicitly itemized in the official page text captured; same for the exact late-fee amount.
 - **Apple Card** — issuing bank is Goldman Sachs Bank USA as of today, but JPMorgan Chase announced a takeover of the Apple Card portfolio in Jan 2026 (~24-month transition, not expected to complete until ~early 2028). This is the single most likely fact in the whole dataset to go stale — re-check it periodically. Also: Apple Card Savings account APY wasn't captured (changes frequently), and the 3% Daily Cash merchant partner list is curated by Apple and known to change periodically.
+- **Amex Blue Cash Everyday / Blue Cash Preferred** — the 2.7% foreign transaction fee for both cards came from a secondary comparison source (CNBC), not pulled directly from Amex's own Rates & Fees table; worth a direct confirmation. The Disney Bundle credit on both cards is a relatively new (2026) addition — reconfirm still active before treating as permanent.
 
 ## UI direction (decided 2026-08-20, built same day)
 
@@ -102,6 +107,7 @@ Rejected a flat grid/list of all 10 cards in favor of an issuer-grouped structur
 - **Citi, Wells Fargo, and Apple currently have only one card each** in the dataset, so their issuer pages fall back to a single-card notice + detail panel instead of a comparison chart (handled automatically by `IssuerPage.jsx`'s `issuerCards.length` check — no special-casing needed elsewhere). For Apple this is permanent, not a research gap — Apple Card genuinely has no tiered lineup (confirmed via research; "Apple Card Family" is a sharing feature, not a different product). Comparison charts for Citi/Wells Fargo will appear automatically once a second card is added to `cards-draft.json`/`cards.json` for that issuer.
 - Home page (`/`, `app/src/pages/Home.jsx`) is a hub: tiles linking to each issuer (showing card count + names) plus a CTA to `/compare`.
 - **Issuer navigation moved to a persistent left sidebar** (changed 2026-09-02): `app/src/components/IssuerSidebar.jsx` renders an "All issuers" link plus one link per `ISSUERS` entry, sticky-positioned alongside the routed page content via a CSS Grid shell in `app/src/App.jsx`/`App.css` (`.app-shell` — a `190px minmax(0, 1fr)` grid, the first place `@media` breakpoints were introduced in this codebase, collapsing the sidebar to a horizontal wrapped row under 760px). This is deliberately separate from `app/src/components/SiteHeader.jsx`, which now only holds the brand plus the "Find My Card"/"Compare" nav-cta pills — the user wanted issuer browsing visually and structurally distinct from those two featured tools rather than sharing one nav row.
+- **Each issuer's own official "all cards" page is linked from its `IssuerPage`** (added 2026-09-21): every `ISSUERS` entry in `app/src/constants.js` now carries a `website` field (the issuer's own credit-card overview/comparison page, e.g. `creditcards.chase.com`, `www.discover.com/credit-cards/`). `IssuerPage.jsx` renders it as a "View all {short} cards ↗" pill next to the `<h1>` (`.issuer-official-link` in `IssuerPage.css`), opening in a new tab (`target="_blank" rel="noopener noreferrer"`). Shown for every issuer regardless of card count, including the single-card issuers (Citi, Wells Fargo, Apple).
 
 Design tokens (IBM Plex Sans/Serif/Mono) originally used a warm "ledger" light/dark palette shared with `data/cards-review.html`. As of 2026-08-25 the live app's palette diverged from that review page — see "Visual identity" below. `cards-review.html` was not updated (it's already stale/deprioritized per the Next Steps below) and still shows the original ledger colors if opened directly.
 

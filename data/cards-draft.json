@@ -14,7 +14,7 @@
       "tier": {
         "family": "Amex Membership Rewards personal charge cards",
         "lineup": [
-          "Green ($150)",
+          "Green ($150, closed to new applicants since Jul 2026 — renamed Classic Green)",
           "Gold ($325)",
           "Platinum ($895)",
           "Centurion (invite-only, ~$10,000 initiation + $5,000/yr)"
@@ -142,7 +142,8 @@
         "CLEAR+ credit exact amount: $219 vs $209 depending on source.",
         "Oura Ring credit and Dunkin'-style newer perks should be reconfirmed as still live.",
         "Whether Etihad is still a live transfer partner (reportedly cut June 30, 2026).",
-        "Car rental elite-status brand/tier specifics not independently confirmed."
+        "Car rental elite-status brand/tier specifics not independently confirmed.",
+        "Amex Green Card was closed to new applicants July 2026 and renamed Classic Green — no longer something a new applicant can sign up for; kept in this lineup list for historical/reference accuracy only."
       ]
     },
     {
@@ -154,7 +155,7 @@
       "tier": {
         "family": "Amex Membership Rewards personal charge cards",
         "lineup": [
-          "Green ($150)",
+          "Green ($150, closed to new applicants since Jul 2026 — renamed Classic Green)",
           "Gold ($325)",
           "Platinum ($895)",
           "Centurion (invite-only)"
@@ -266,7 +267,174 @@
       ],
       "flags": [
         "Welcome bonus not captured — treat as a live/rotating promotional figure to fetch at build time.",
-        "20 transfer partners is Amex's own figure; Etihad's post-June-2026 status is uncertain."
+        "20 transfer partners is Amex's own figure; Etihad's post-June-2026 status is uncertain.",
+        "Amex Green Card was closed to new applicants July 2026 and renamed Classic Green — no longer something a new applicant can sign up for; kept in this lineup list for historical/reference accuracy only."
+      ]
+    },
+    {
+      "id": "amex-blue-cash-everyday",
+      "name": "Blue Cash Everyday® Card from American Express",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annualFee": 0,
+      "tier": {
+        "family": "Amex Blue Cash cash-back cards",
+        "lineup": [
+          "Blue Cash Everyday ($0)",
+          "Blue Cash Preferred ($0 intro, $95 after year 1)"
+        ],
+        "rank": "1 of 2 (no annual fee)"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "3%",
+            "category": "U.S. supermarkets",
+            "cap": "$6,000/yr, then 1%"
+          },
+          {
+            "rate": "3%",
+            "category": "U.S. online retail purchases",
+            "cap": "$6,000/yr, then 1%"
+          },
+          {
+            "rate": "3%",
+            "category": "U.S. gas stations",
+            "cap": "$6,000/yr, then 1%"
+          },
+          {
+            "rate": "1%",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "Cash back accrues as Reward Dollars",
+          "Redeem as a statement credit",
+          "Redeem at Amazon.com checkout"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": "None — straight cash back, no airline/hotel transfer partners."
+      },
+      "perks": [
+        {
+          "name": "Disney Bundle credit",
+          "value": "up to $7/mo (~$84/yr)",
+          "note": "statement credit toward a qualifying Disney Bundle subscription; added 2026, reconfirm still active"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "up to $10,000/item, $50,000/yr"
+        },
+        {
+          "name": "Car rental loss and damage insurance"
+        },
+        {
+          "name": "Extended warranty"
+        },
+        {
+          "name": "0% intro APR on purchases",
+          "value": "15 months",
+          "note": "then a variable rate applies"
+        }
+      ],
+      "flags": [
+        "Foreign transaction fee (2.7%) sourced from a secondary comparison (CNBC), not independently pulled from Amex's own Rates & Fees table.",
+        "Welcome bonus not captured — rotating promotional figure, re-verify at build time.",
+        "Disney Bundle credit is a relatively new addition (2026) — reconfirm it's still active before treating as permanent."
+      ]
+    },
+    {
+      "id": "amex-blue-cash-preferred",
+      "name": "Blue Cash Preferred® Card from American Express",
+      "issuer": "American Express",
+      "network": "Amex",
+      "annualFee": 95,
+      "annualFeeNote": "$0 introductory annual fee for the first year, then $95.",
+      "tier": {
+        "family": "Amex Blue Cash cash-back cards",
+        "lineup": [
+          "Blue Cash Everyday ($0)",
+          "Blue Cash Preferred ($0 intro, $95 after year 1)"
+        ],
+        "rank": "2 of 2 (top tier)"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "6%",
+            "category": "U.S. supermarkets",
+            "cap": "$6,000/yr, then 1%"
+          },
+          {
+            "rate": "6%",
+            "category": "Select U.S. streaming subscriptions"
+          },
+          {
+            "rate": "3%",
+            "category": "U.S. gas stations"
+          },
+          {
+            "rate": "3%",
+            "category": "Transit (taxis/rideshare, parking, tolls, trains, buses)"
+          },
+          {
+            "rate": "1%",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "Cash back accrues as Reward Dollars",
+          "Redeem as a statement credit",
+          "Redeem at Amazon.com checkout"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": null,
+        "other": "None — straight cash back, no airline/hotel transfer partners."
+      },
+      "perks": [
+        {
+          "name": "Disney Bundle credit",
+          "value": "up to $10/mo (~$120/yr)",
+          "note": "statement credit toward a qualifying Disney Bundle subscription; added 2026, reconfirm still active"
+        },
+        {
+          "name": "Return protection",
+          "value": "up to $300/item, $1,000/yr"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "up to $10,000/item, $50,000/yr"
+        },
+        {
+          "name": "Extended warranty",
+          "note": "adds one year to eligible manufacturer warranties"
+        },
+        {
+          "name": "Car rental loss and damage insurance"
+        },
+        {
+          "name": "0% intro APR on purchases and balance transfers",
+          "value": "12 months",
+          "note": "then a variable rate applies"
+        }
+      ],
+      "flags": [
+        "Foreign transaction fee (2.7%) sourced from a secondary comparison (CNBC), not independently pulled from Amex's own Rates & Fees table.",
+        "Welcome bonus not captured — rotating promotional figure, re-verify at build time.",
+        "Disney Bundle credit is a relatively new addition (2026) — reconfirm it's still active before treating as permanent."
       ]
     },
     {
