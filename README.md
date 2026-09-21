@@ -6,9 +6,9 @@ A credit card comparison web app that lets you browse, compare, and get matched 
 
 ## What it does
 
-Card Compare covers 16 cards across 9 major U.S. issuers (American Express, Chase, Capital One, Bank of America, Citi, Wells Fargo, Discover, TD Bank, and Apple), spanning premium travel cards down to no-annual-fee cash-back cards. It's built around three ways to explore that data:
+Card Compare covers 18 cards across 9 major U.S. issuers (American Express, Chase, Capital One, Bank of America, Citi, Wells Fargo, Discover, TD Bank, and Apple), spanning premium travel cards down to no-annual-fee cash-back cards. It's built around three ways to explore that data:
 
-- **Browse by issuer** — each issuer has its own page with a side-by-side comparison chart of its cards (annual fee, tier, points program, top earning rates, perks, transfer partners), plus tabs to drill into full details on any one card.
+- **Browse by issuer** — each issuer has its own page with a side-by-side comparison chart of its cards (annual fee, tier, points program, top earning rates, perks, transfer partners), plus tabs to drill into full details on any one card. Each issuer page also links out to that bank's own official credit-card page, in case you want to go straight to the source.
 - **Compare across issuers** — pick any 2–4 cards from the entire lineup and compare them head-to-head, regardless of who issues them.
 - **Find My Card** — a 5-question guided quiz that scores every card against your spending habits and budget, then recommends your top 3 matches with reasoning.
 
