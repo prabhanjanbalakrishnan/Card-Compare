@@ -1,9 +1,11 @@
+import { ISSUERS } from '../constants.js'
 import './CardDetail.css'
 
 export default function CardDetail({ card }) {
   const { partnerships, tier, pointsProgram } = card
   const airlines = partnerships?.transferPartners?.airlines ?? []
   const hotels = partnerships?.transferPartners?.hotels ?? []
+  const issuerInfo = ISSUERS.find((i) => i.name === card.issuer)
 
   return (
     <article className="detail-card">
@@ -110,13 +112,21 @@ export default function CardDetail({ card }) {
       </section>
 
       {card.flags?.length > 0 && (
-        <section className="flags-box">
-          <h4>Flagged for spot-check</h4>
+        <section className="disclaimer-box">
+          <h4>Double-check these details</h4>
           <ul>
             {card.flags.map((f, i) => (
               <li key={i}>{f}</li>
             ))}
           </ul>
+          {issuerInfo?.website && (
+            <p className="disclaimer-link-row">
+              For the most accurate, up-to-date information, visit{' '}
+              <a href={issuerInfo.website} target="_blank" rel="noopener noreferrer">
+                {issuerInfo.name}'s official card page ↗
+              </a>
+            </p>
+          )}
         </section>
       )}
     </article>
