@@ -8,6 +8,10 @@
   max-width: 720px;
 }
 
+.detail-art {
+  margin-bottom: 1.3rem;
+}
+
 .detail-head {
   display: flex;
   justify-content: space-between;

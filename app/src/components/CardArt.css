@@ -1,0 +1,91 @@
+.card-art {
+  container-type: inline-size;
+  width: 100%;
+  aspect-ratio: 1.586;
+  border-radius: 6% / 9.5%;
+  background: linear-gradient(135deg, var(--art-from), var(--art-to));
+  color: var(--art-ink);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.card-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0) 38%);
+  pointer-events: none;
+}
+
+.card-art-lg {
+  max-width: 280px;
+}
+
+.card-art-sm {
+  max-width: 130px;
+  margin-bottom: 0.6rem;
+}
+
+.card-art-face {
+  position: absolute;
+  inset: 0;
+  padding: 7cqw 8cqw;
+}
+
+.card-art-issuer {
+  position: absolute;
+  top: 7cqw;
+  left: 8cqw;
+  font-size: 5.2cqw;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  opacity: 0.92;
+}
+
+.card-art-chip {
+  position: absolute;
+  top: 19cqw;
+  left: 8cqw;
+  width: 14cqw;
+  height: 10.5cqw;
+  border-radius: 1.8cqw;
+  background: linear-gradient(135deg, #f1d68a, #b98a2c);
+  box-shadow: inset 0 0 0 0.4cqw rgba(0, 0, 0, 0.22);
+}
+
+.card-art-name {
+  position: absolute;
+  left: 8cqw;
+  bottom: 7cqw;
+  max-width: 62cqw;
+  font-size: 6.4cqw;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.card-art-network {
+  position: absolute;
+  right: 8cqw;
+  bottom: 7cqw;
+  font-size: 6cqw;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0.06em;
+  opacity: 0.9;
+}
+
+.card-art-stripe {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 2.4cqw;
+  background: var(--art-accent);
+}
+
+.card-art-sm .card-art-name {
+  font-size: 7.6cqw;
+}

@@ -1,4 +1,5 @@
 import { ISSUERS } from '../constants.js'
+import CardArt from './CardArt.jsx'
 import './CardDetail.css'
 
 export default function CardDetail({ card }) {
@@ -9,6 +10,9 @@ export default function CardDetail({ card }) {
 
   return (
     <article className="detail-card">
+      <div className="detail-art">
+        <CardArt card={card} size="lg" />
+      </div>
       <div className="detail-head">
         <div>
           <h3>{card.name}</h3>

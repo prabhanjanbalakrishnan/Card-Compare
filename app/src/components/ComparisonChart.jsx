@@ -1,3 +1,4 @@
+import CardArt from './CardArt.jsx'
 import './ComparisonChart.css'
 
 function partnerCount(card) {
@@ -14,7 +15,10 @@ export default function ComparisonChart({ cards }) {
           <tr>
             <th className="row-label-col">&nbsp;</th>
             {cards.map((card) => (
-              <th key={card.id}>{card.name}</th>
+              <th key={card.id}>
+                <CardArt card={card} size="sm" />
+                {card.name}
+              </th>
             ))}
           </tr>
         </thead>
