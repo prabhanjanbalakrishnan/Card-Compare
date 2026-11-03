@@ -2,11 +2,29 @@ import { ISSUERS } from '../constants.js'
 import CardArt from './CardArt.jsx'
 import './CardDetail.css'
 
+const normalize = (s) => s.toLowerCase().replace(/[®℠™]/g, '').replace(/\s+/g, ' ')
+const chipLabel = (chip) => normalize(chip.split(' (')[0])
+
+// Which lineup chip is this card? Match by name (longest label wins, so "Venture X" beats
+// "Venture"); fall back to the annual fee for cards whose lineup labels don't match their name.
+function currentChipIndex(card) {
+  const name = normalize(card.name)
+  let best = -1
+  card.tier.lineup.forEach((chip, i) => {
+    const label = chipLabel(chip)
+    if (name.includes(label) && (best === -1 || label.length > chipLabel(card.tier.lineup[best]).length)) {
+      best = i
+    }
+  })
+  return best
+}
+
 export default function CardDetail({ card }) {
   const { partnerships, tier, pointsProgram } = card
   const airlines = partnerships?.transferPartners?.airlines ?? []
   const hotels = partnerships?.transferPartners?.hotels ?? []
   const issuerInfo = ISSUERS.find((i) => i.name === card.issuer)
+  const currentIndex = currentChipIndex(card)
 
   return (
     <article className="detail-card">
@@ -28,7 +46,8 @@ export default function CardDetail({ card }) {
 
       <div className="tier-row">
         {tier.lineup.map((t, i) => {
-          const isCurrent = t.toLowerCase().includes(`$${card.annualFee}`)
+          const isCurrent =
+            currentIndex === -1 ? t.toLowerCase().includes(`$${card.annualFee}`) : i === currentIndex
           return (
             <span key={i} className={`chip${isCurrent ? ' current' : ''}`}>
               {t}

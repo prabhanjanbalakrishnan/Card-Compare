@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card.",
-    "cardCount": 16
+    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release.",
+    "cardCount": 21
   },
   "cards": [
     {
@@ -689,6 +689,308 @@
       "flags": [
         "This is the POST late-2024/2025 refresh version of the card — most lifestyle credits (DoorDash/Lyft/Apple/StubHub) date to that overhaul and many carry hard expiration dates (2026/2027) as time-limited promos, not permanent features.",
         "The Edit hotel credit terms took effect Jan 1, 2026 — very recent, some older write-ups may show stale figures."
+      ]
+    },
+    {
+      "id": "chase-freedom-rise",
+      "name": "Chase Freedom Rise®",
+      "issuer": "Chase",
+      "network": "Visa",
+      "annualFee": 0,
+      "tier": {
+        "family": "Chase Freedom lineup",
+        "lineup": [
+          "Freedom Rise ($0)",
+          "Freedom Unlimited ($0)",
+          "Freedom Flex ($0)"
+        ],
+        "rank": "Entry tier for building credit — automatically reviewed each year for an upgrade to Freedom Unlimited"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "1.5%",
+            "category": "All purchases, no categories or activation needed"
+          },
+          {
+            "rate": "2%",
+            "category": "Lyft rides (promo through 9/30/2027)"
+          }
+        ],
+        "redemption": [
+          "Cash back is tracked as points (100 points = $1) — redeem for cash, gift cards, travel, or pay with points; no minimum to redeem",
+          "Pay with Points at checkout (Amazon, PayPal) is worth 0.8 cents per point",
+          "Rewards don't expire while the account is open"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": "Not a co-brand card.",
+        "other": null
+      },
+      "perks": [
+        {
+          "name": "Automatic upgrade review",
+          "note": "reviewed yearly for Freedom Unlimited if you've made a purchase and paid on time in the past 12 months"
+        },
+        {
+          "name": "Credit limit increase review",
+          "value": "as soon as 6 months"
+        },
+        {
+          "name": "DashPass (DoorDash/Caviar) membership",
+          "value": "6 months complimentary",
+          "note": "activate by 12/31/2029; auto-renews at the then-current monthly rate unless cancelled"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "120 days, up to $500/item"
+        },
+        {
+          "name": "Extended warranty",
+          "value": "+1 year on eligible warranties of 3 years or less"
+        },
+        {
+          "name": "Trip cancellation/interruption insurance",
+          "value": "up to $1,500/traveler, $6,000/trip"
+        },
+        {
+          "name": "Chase Credit Journey",
+          "value": "free credit score tracking + identity monitoring"
+        },
+        {
+          "name": "Foreign transaction fee",
+          "value": "3%",
+          "note": "per secondary sources — not stated on Chase's Freedom Rise page"
+        }
+      ],
+      "flags": [
+        "Aimed at people new to credit: Chase says having $250+ in a Chase checking or savings account improves approval odds, and extra ID verification (e.g. driver's license, Social Security card) may be requested after applying.",
+        "Foreign transaction fee (3%) comes from secondary sources; Chase's own Freedom Rise page doesn't state it either way — worth a manual check.",
+        "The $25 statement credit for enrolling in autopay is a rotating promo, not a permanent feature."
+      ]
+    },
+    {
+      "id": "chase-freedom-unlimited",
+      "name": "Chase Freedom Unlimited®",
+      "issuer": "Chase",
+      "network": "Visa",
+      "annualFee": 0,
+      "tier": {
+        "family": "Chase Freedom lineup",
+        "lineup": [
+          "Freedom Rise ($0)",
+          "Freedom Unlimited ($0)",
+          "Freedom Flex ($0)"
+        ],
+        "rank": "Everyday flat-rate card — parallel to Freedom Flex (higher flat rate, no rotating categories)"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "5%",
+            "category": "Travel purchased through Chase Travel"
+          },
+          {
+            "rate": "3%",
+            "category": "Dining at restaurants, including takeout and eligible delivery"
+          },
+          {
+            "rate": "3%",
+            "category": "Drugstore purchases"
+          },
+          {
+            "rate": "2%",
+            "category": "Lyft rides (promo through 9/30/2027)"
+          },
+          {
+            "rate": "1.5%",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "Cash back is tracked as points (100 points = $1) — redeem for cash, gift cards, travel, or pay with points; no minimum to redeem",
+          "Pay with Points at checkout (Amazon, PayPal) is worth 0.8 cents per point",
+          "Rewards don't expire while the account is open"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": "Not a co-brand card.",
+        "other": "Pairs with a Sapphire card: per secondary sources, Freedom points can be combined with Sapphire Ultimate Rewards points and transferred to airline/hotel partners (not stated on Chase's Freedom Unlimited page)."
+      },
+      "perks": [
+        {
+          "name": "0% intro APR",
+          "value": "15 months on purchases and balance transfers",
+          "note": "balance transfer fee applies; variable APR after"
+        },
+        {
+          "name": "DashPass (DoorDash/Caviar) membership",
+          "value": "6 months complimentary",
+          "note": "activate by 12/31/2029; auto-renews at the then-current monthly rate unless cancelled"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "120 days, up to $500/item"
+        },
+        {
+          "name": "Extended warranty",
+          "value": "+1 year on eligible warranties of 3 years or less"
+        },
+        {
+          "name": "Trip cancellation/interruption insurance",
+          "value": "up to $1,500/traveler, $6,000/trip"
+        },
+        {
+          "name": "Auto rental coverage",
+          "note": "secondary to your personal insurance in the U.S."
+        },
+        {
+          "name": "Travel and emergency assistance",
+          "note": "referrals only — you pay for any services"
+        },
+        {
+          "name": "Chase Credit Journey",
+          "value": "free credit score tracking + identity monitoring"
+        },
+        {
+          "name": "Chase Pay Over Time",
+          "note": "lets eligible customers split purchases into fixed monthly payments for a fee"
+        },
+        {
+          "name": "Foreign transaction fee",
+          "value": "3%",
+          "note": "per secondary sources — unlike Freedom Flex, Chase's Unlimited page doesn't advertise a no-fee benefit"
+        }
+      ],
+      "flags": [
+        "Foreign transaction fee (3%) comes from secondary sources; Chase's own Freedom Unlimited page doesn't state it. Freedom Flex dropped its fee in Sept 2026, so don't assume Unlimited did too — worth a manual check.",
+        "Using Freedom points for airline/hotel transfers requires holding a Sapphire (or similar) card — this is from secondary sources, not Chase's Freedom Unlimited page.",
+        "Welcome bonus varies by source and over time ($200 on Chase's page at research time; $250–$300 reported elsewhere) — treat as volatile."
+      ]
+    },
+    {
+      "id": "chase-freedom-flex",
+      "name": "Chase Freedom Flex®",
+      "issuer": "Chase",
+      "network": "Mastercard (World Elite)",
+      "annualFee": 0,
+      "tier": {
+        "family": "Chase Freedom lineup",
+        "lineup": [
+          "Freedom Rise ($0)",
+          "Freedom Unlimited ($0)",
+          "Freedom Flex ($0)"
+        ],
+        "rank": "Category-bonus card — parallel to Freedom Unlimited (rotating 5% categories instead of a higher flat rate)"
+      },
+      "pointsProgram": {
+        "name": "Cash Back",
+        "earningRates": [
+          {
+            "rate": "5%",
+            "category": "Rotating quarterly bonus categories (activation required each quarter)",
+            "cap": "up to $1,500 in combined purchases/quarter, then 1%"
+          },
+          {
+            "rate": "5%",
+            "category": "Travel purchased through Chase Travel"
+          },
+          {
+            "rate": "3%",
+            "category": "Dining at restaurants, including takeout and eligible delivery"
+          },
+          {
+            "rate": "3%",
+            "category": "Drugstore purchases"
+          },
+          {
+            "rate": "2%",
+            "category": "Lyft rides (promo through 9/30/2027)"
+          },
+          {
+            "rate": "1%",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "Cash back is tracked as points (100 points = $1) — redeem for cash, gift cards, travel, or pay with points; no minimum to redeem",
+          "Pay with Points at checkout (Amazon, PayPal) is worth 0.8 cents per point",
+          "Rewards don't expire while the account is open",
+          "Points Boost: rotating offers can make points worth up to 10% more on select hotel bookings through Chase Travel (announced Sept 2026)"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": "Not a co-brand card.",
+        "other": "Pairs with a Sapphire card: per secondary sources, Freedom points can be combined with Sapphire Ultimate Rewards points and transferred to airline/hotel partners (not stated on Chase's Freedom Flex page)."
+      },
+      "perks": [
+        {
+          "name": "No foreign transaction fees",
+          "note": "new as of Sept 20, 2026 — the fee used to be 3%"
+        },
+        {
+          "name": "Category preview",
+          "note": "rotating 5% categories are viewable one quarter ahead in the Chase app"
+        },
+        {
+          "name": "0% intro APR",
+          "value": "15 months on purchases and balance transfers",
+          "note": "balance transfer fee applies; variable APR after"
+        },
+        {
+          "name": "DashPass (DoorDash/Caviar) membership",
+          "value": "6 months complimentary",
+          "note": "activate by 12/31/2029; auto-renews at the then-current monthly rate unless cancelled"
+        },
+        {
+          "name": "Purchase protection",
+          "value": "120 days, up to $500/item"
+        },
+        {
+          "name": "Extended warranty",
+          "value": "+1 year on eligible warranties of 3 years or less"
+        },
+        {
+          "name": "Trip cancellation/interruption insurance",
+          "value": "up to $1,500/traveler, $6,000/trip"
+        },
+        {
+          "name": "Auto rental coverage",
+          "note": "secondary to your personal insurance in the U.S."
+        },
+        {
+          "name": "Travel and emergency assistance",
+          "note": "referrals only — you pay for any services"
+        },
+        {
+          "name": "Chase Credit Journey",
+          "value": "free credit score tracking + identity monitoring"
+        },
+        {
+          "name": "Chase Pay Over Time",
+          "note": "lets eligible customers split purchases into fixed monthly payments for a fee"
+        }
+      ],
+      "flags": [
+        "Rotating categories change every quarter. As of research time: Oct–Dec 2026 = grocery stores (excl. Walmart/Target), dining, and American Red Cross; Jan–Mar 2027 = grocery stores and top streaming services. Check the current quarter before relying on them.",
+        "The no-foreign-transaction-fee benefit took effect Sept 20, 2026 (per Chase's press release) — older write-ups still list a 3% fee.",
+        "Cell phone protection was reportedly removed the same day; that comes from secondary sources and isn't listed on Chase's page, so confirm before assuming either way.",
+        "Chase's release says 'Chase Freedom cardmembers' get Points Boost offers — worth confirming it applies to Flex specifically.",
+        "Welcome bonus is a rotating promo ($250 shown as a limited-time bump over $200 at research time) — treat as volatile."
       ]
     },
     {
