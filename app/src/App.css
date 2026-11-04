@@ -1,6 +1,7 @@
 .site-header {
   border-bottom: 1px solid var(--rule-strong);
-  background: var(--paper-raised);
+  background: rgba(13, 26, 48, 0.82);
+  backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -18,11 +19,24 @@
 }
 
 .brand {
+  font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   text-decoration: none;
   color: var(--ink);
   letter-spacing: -0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.brand::before {
+  content: '';
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 3px;
+  background: linear-gradient(135deg, var(--accent), #1e6fd9);
+  box-shadow: 0 0 12px var(--glow);
 }
 
 .site-nav {
@@ -56,15 +70,16 @@
    rather than one more tab among the issuer list. */
 .site-nav a.nav-cta {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--paper);
   font-weight: 700;
+  box-shadow: 0 0 16px var(--glow);
   padding: 0.45rem 0.95rem;
   margin: 0 0.15rem;
 }
 
 .site-nav a.nav-cta:hover {
   background: var(--accent);
-  color: #ffffff;
+  color: var(--paper);
   filter: brightness(1.12);
 }
 

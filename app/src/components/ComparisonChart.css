@@ -50,7 +50,7 @@
 }
 
 .fee-note {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 400;
   color: var(--ink-soft);
@@ -69,7 +69,7 @@
 }
 
 .rate-badge {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 600;
   color: var(--accent);
   overflow-wrap: break-word;

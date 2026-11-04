@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --paper: #0a0e1a;
-  --paper-raised: #121a2e;
-  --ink: #eef1fa;
-  --ink-soft: #93a1c4;
-  --rule: #223052;
-  --rule-strong: #33477a;
-  --accent: #4f8cff;
-  --accent-soft: #16233f;
+  --paper: #060d1b;
+  --paper-raised: #0d1a30;
+  --ink: #eaf0fb;
+  --ink-soft: #8fa3c4;
+  --rule: #1a2b48;
+  --rule-strong: #2b4270;
+  --accent: #3fa9f5;
+  --accent-soft: #112a4a;
+  --glow: rgba(63, 169, 245, 0.22);
   --good: #34d399;
   --good-soft: #0f2b21;
   --warn: #fbbf24;
   --warn-soft: #3a2c10;
-  --chip: #1a2540;
-  --shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 8px 24px rgba(0, 0, 0, 0.55);
+  --chip: #122240;
+  --shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 10px 30px rgba(0, 0, 0, 0.55);
+  --font-display: 'Space Grotesk', 'IBM Plex Sans', system-ui, sans-serif;
+  --font-ui: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SF Mono', Menlo, monospace;
   color-scheme: dark;
 }
 
@@ -24,26 +28,36 @@
 
 body {
   margin: 0;
-  background: var(--paper);
+  background-color: var(--paper);
+  /* A soft blue glow at the top of the page over a barely-there grid. */
+  background-image:
+    radial-gradient(1000px 420px at 50% -100px, rgba(63, 169, 245, 0.14), transparent 70%),
+    linear-gradient(rgba(143, 163, 196, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 163, 196, 0.03) 1px, transparent 1px);
+  background-size: auto, 40px 40px, 40px 40px;
+  background-attachment: fixed;
   color: var(--ink);
-  font-family: 'IBM Plex Serif', Georgia, serif;
+  font-family: var(--font-ui);
   line-height: 1.5;
 }
 
 h1,
 h2,
 h3,
-h4,
+h4 {
+  font-family: var(--font-display);
+}
+
 button,
 input,
 select,
 label,
 nav {
-  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  font-family: var(--font-ui);
 }
 
 .num {
-  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
 }
 
@@ -56,11 +70,31 @@ button {
   cursor: pointer;
 }
 
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+* {
+  scrollbar-color: var(--rule-strong) var(--paper);
+}
+
+/* Section labels: small monospace caps, like a statement header. */
+.eyebrow {
+  font-family: var(--font-mono) !important;
+  font-weight: 500 !important;
+}
+
 .loading {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-mono);
   color: var(--ink-soft);
 }

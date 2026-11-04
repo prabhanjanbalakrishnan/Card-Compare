@@ -3,7 +3,7 @@
 }
 
 .compare-intro .eyebrow {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -39,7 +39,7 @@
   border: 1px solid var(--rule);
   border-radius: 8px;
   padding: 0.65rem 0.85rem;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.87rem;
   cursor: pointer;
 }
@@ -61,7 +61,7 @@
 }
 
 .single-card-note {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   color: var(--ink-soft);
   background: var(--accent-soft);

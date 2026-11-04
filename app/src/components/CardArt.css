@@ -8,7 +8,7 @@
   box-shadow: var(--shadow);
   position: relative;
   overflow: hidden;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
 }
 
 .card-art::after {

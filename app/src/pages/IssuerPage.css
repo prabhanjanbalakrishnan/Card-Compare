@@ -3,7 +3,7 @@
 }
 
 .issuer-intro .eyebrow {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -26,7 +26,7 @@
 }
 
 .issuer-official-link {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--accent);
@@ -44,7 +44,7 @@
 
 .single-card-note,
 .empty-note {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   color: var(--ink-soft);
   background: var(--accent-soft);

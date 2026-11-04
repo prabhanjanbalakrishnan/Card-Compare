@@ -2,7 +2,7 @@
   max-width: 75%;
   padding: 0.65rem 0.95rem;
   border-radius: 14px;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   line-height: 1.45;
   text-wrap: pretty;

@@ -3,7 +3,7 @@
 }
 
 .quiz-intro .eyebrow {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.14em;
@@ -50,7 +50,7 @@
 
 .quiz-input-row input {
   flex: 1;
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.92rem;
   padding: 0.6rem 0.85rem;
   border: 1px solid var(--rule-strong);
@@ -65,7 +65,7 @@
 }
 
 .quiz-btn {
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: var(--font-ui);
   font-size: 0.9rem;
   font-weight: 500;
   padding: 0.6rem 1.2rem;
