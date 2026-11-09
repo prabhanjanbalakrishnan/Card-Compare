@@ -2,6 +2,13 @@
 // No AI/LLM involved — everything here is keyword matching and arithmetic
 // over the existing cards.json data. See CLAUDE.md for why: the app has no
 // backend/API-key infrastructure and is published as a single static file.
+//
+// Answers (all collected by tapping, none typed):
+//   spend:   array of up to 3 CATEGORIES keys the user spends most on
+//   abroad:  boolean, only asked when TRAVEL is in `spend`
+//   monthly: 'low' | 'mid' | 'high' — rough monthly card spend
+//   style:   'cash' | 'points' | 'any' — preferred kind of rewards
+//   maxFee:  number, or Infinity for "any amount" (hard filter)
 
 export const CATEGORIES = {
   TRAVEL: 'TRAVEL',
@@ -12,6 +19,7 @@ export const CATEGORIES = {
   EVERYDAY: 'EVERYDAY',
 }
 
+// Used to tag each card's earningRate category prose (not the user's answers).
 const KEYWORDS = {
   TRAVEL: [
     'flight', 'flights', 'fly', 'flying', 'airline', 'airlines', 'airfare', 'plane',
@@ -40,11 +48,13 @@ const KEYWORDS = {
 const TRAVEL_PERK_KEYWORDS = [
   'lounge', 'airport', 'airline', 'hotel', 'tsa', 'global entry', 'travel',
 ]
-const DINING_PERK_KEYWORDS = ['dining', 'restaurant', 'resy', 'doordash', 'dashpass']
 
-// Maps free text (either the user's Q2 answer, or a card's earningRate
-// category prose) to 1-2 categories it best matches. Falls back to EVERYDAY
-// when nothing matches, rather than returning nothing.
+// Rough yearly card spend for each monthly bracket the quiz offers.
+const ANNUAL_SPEND = { low: 3000, mid: 12000, high: 30000 }
+
+// Maps a card's earningRate category prose to the 1-2 spend categories it best
+// matches. Returns [] when nothing matches (e.g. Lyft, drugstores, rotating
+// categories) — those niche rates must not be mistaken for the card's flat rate.
 function categorizeText(rawText) {
   const text = (rawText || '').toLowerCase()
   const hits = []
@@ -52,11 +62,9 @@ function categorizeText(rawText) {
     const count = words.filter((w) => text.includes(w)).length
     if (count > 0) hits.push([cat, count])
   }
-  if (hits.length === 0) {
-    return { categories: [CATEGORIES.EVERYDAY], confidence: 'low' }
-  }
+  if (hits.length === 0) return []
   hits.sort((a, b) => b[1] - a[1])
-  return { categories: hits.slice(0, 2).map(([cat]) => cat), confidence: 'high' }
+  return hits.slice(0, 2).map(([cat]) => cat)
 }
 
 function parseRateNumber(rateStr) {
@@ -71,9 +79,9 @@ function buildCardCategoryProfile(card) {
   for (const rate of card.pointsProgram.earningRates) {
     const numeric = parseRateNumber(rate.rate)
     if (Number.isNaN(numeric)) continue
-    const tags = /everything else|all other|every purchase|every day/i.test(rate.category)
+    const tags = /everything else|all other|every purchase|every day|all purchases/i.test(rate.category)
       ? [CATEGORIES.EVERYDAY]
-      : categorizeText(rate.category).categories
+      : categorizeText(rate.category)
     for (const tag of tags) {
       profile[tag] = Math.max(profile[tag] ?? 0, numeric)
     }
@@ -96,77 +104,88 @@ function hasTravelSignal(card) {
   return perkHits.length >= 2
 }
 
-function hasDiningSignal(card, profile) {
-  const baseline = profile[CATEGORIES.EVERYDAY] ?? 0
-  if ((profile[CATEGORIES.DINING] ?? 0) > baseline) return true
-  return card.perks.some(
-    (p) => textMatchesAny(p.name, DINING_PERK_KEYWORDS) || textMatchesAny(p.note, DINING_PERK_KEYWORDS)
-  )
+// 'none' = advertises no foreign transaction fee, 'fee' = lists one, 'unknown' = not recorded.
+function foreignFeeStatus(card) {
+  for (const p of card.perks) {
+    if (/no foreign transaction|no fees of any kind/i.test(p.name)) return 'none'
+    if (/^foreign transaction fee/i.test(p.name) && p.value && !/^\$?0/.test(p.value)) return 'fee'
+  }
+  return 'unknown'
 }
 
+const isCashBack = (card) => /cash/i.test(card.pointsProgram.name)
+const hasNoRewards = (card) => /no rewards/i.test(card.pointsProgram.name)
+
+const clamp = (n, lo, hi) => Math.min(Math.max(n, lo), hi)
+
+const listLabel = (cats) => cats.map((c) => c.toLowerCase()).join(' and ')
+
 // Scores one card against the quiz answers. Returns { score, reasons }.
-// Only reasons for signals that actually contributed points are included.
+// Each signal adds at most one reason, and only when it actually moved the score.
 function scoreCard(card, answers) {
   let score = 0
   const reasons = []
   const profile = buildCardCategoryProfile(card)
+  const flat = profile[CATEGORIES.EVERYDAY] ?? 0
+  const spend = answers.spend?.length ? answers.spend : [CATEGORIES.EVERYDAY]
 
-  // Q1 — beginner-friendly nudge
-  if (answers.hasCard === false && card.annualFee <= 95) {
-    score += 10
-    reasons.push('A good low-fee starting card since you don’t have one yet')
+  // Spend categories — what the card earns on each category the user picked,
+  // falling back to its flat rate where it has no special rate for that category.
+  const rates = spend.map((cat) =>
+    cat === CATEGORIES.EVERYDAY ? flat : Math.max(profile[cat] ?? 0, flat)
+  )
+  const categoryScore = Math.min(
+    (rates.reduce((sum, r) => sum + Math.min(r, 10) * 4, 0) / rates.length),
+    40
+  )
+  score += categoryScore
+  const boosted = spend.filter((cat) => cat !== CATEGORIES.EVERYDAY && (profile[cat] ?? 0) > flat)
+  if (boosted.length > 0) {
+    reasons.push(`Boosted earning on ${listLabel(boosted)}`)
+  } else if (categoryScore > 0) {
+    reasons.push('Solid flat earning rate on everyday spending')
   }
 
-  // Q2 — spend category match
-  const { categories: spendCategories, confidence } = categorizeText(answers.spend)
-  if (confidence === 'high') {
-    let categoryScore = 0
-    for (const cat of spendCategories) {
-      const rate = profile[cat] ?? 0
-      if (rate > 0) {
-        categoryScore += Math.min(rate, 10) * 4
-      }
-    }
-    categoryScore = Math.min(categoryScore, 40)
-    if (categoryScore > 0) {
-      score += categoryScore
-      const label = spendCategories.map((c) => c.toLowerCase()).join(' and ')
-      reasons.push(`Strong earning rate on ${label} — matches your top spending`)
-    }
-  } else {
-    const flat = profile[CATEGORIES.EVERYDAY] ?? 0
-    const categoryScore = Math.min(Math.min(flat, 10) * 4, 20)
-    if (categoryScore > 0) {
-      score += categoryScore
-      reasons.push('Solid everyday earning rate for general spending')
-    }
-  }
-
-  // Q3 — travel benefits
-  const travelSignal = hasTravelSignal(card)
-  if (answers.travel === true && travelSignal) {
+  // Travel — only counts when the user said travel is a major spend area.
+  if (spend.includes(CATEGORIES.TRAVEL) && hasTravelSignal(card)) {
     score += 25
-    reasons.push('Strong travel perks/partners match your interest in trip benefits')
-  } else if (answers.travel === false && !travelSignal) {
-    score += 10
+    reasons.push('Travel perks and transfer partners')
   }
 
-  // Q4 — dining benefits
-  const diningSignal = hasDiningSignal(card, profile)
-  if (answers.dining === true && diningSignal) {
-    score += 20
-    reasons.push('Dining-focused perks/rate fit your love of eating out')
-  } else if (answers.dining === false && !diningSignal) {
-    score += 8
+  // Foreign use — only asked when travel was picked.
+  if (answers.abroad === true) {
+    const status = foreignFeeStatus(card)
+    if (status === 'none') {
+      score += 15
+      reasons.push('No foreign transaction fees abroad')
+    } else if (status === 'fee') {
+      score -= 12
+    }
   }
 
-  // Q5 — fee fit (always shown since it's the hard filter)
-  if (card.annualFee === 0) {
-    reasons.push('No annual fee')
-  } else {
-    reasons.push(`Fits within your $${answers.maxFee} annual fee limit`)
+  // Monthly spend — does the card likely earn back more than its annual fee?
+  const annualSpend = ANNUAL_SPEND[answers.monthly]
+  if (annualSpend) {
+    const blended = rates.reduce((a, b) => a + b, 0) / rates.length
+    const net = annualSpend * (blended / 100) - card.annualFee
+    score += clamp(net / 60, -12, 12)
+    if (card.annualFee > 0 && net >= 0) {
+      reasons.push('At your spending level, rewards should outweigh the annual fee')
+    }
   }
 
+  // Reward style
+  if (!hasNoRewards(card)) {
+    if (answers.style === 'cash' && isCashBack(card)) {
+      score += 18
+      reasons.push('Straightforward cash back, no points to track')
+    } else if (answers.style === 'points' && !isCashBack(card)) {
+      score += 18
+      reasons.push('Points or miles with flexible redemption')
+    }
+  }
+
+  if (reasons.length === 0) reasons.push('Closest overall fit to your answers')
   return { score, reasons }
 }
 

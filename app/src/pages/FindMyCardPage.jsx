@@ -5,23 +5,62 @@ import ChatBubble from '../components/ChatBubble.jsx'
 import { rankTopCards } from '../utils/quizLogic.js'
 import './FindMyCardPage.css'
 
+const MAX_SPEND_PICKS = 3
+
+const SPEND_OPTIONS = [
+  { value: 'GROCERIES', label: 'Groceries' },
+  { value: 'DINING', label: 'Dining & takeout' },
+  { value: 'GAS', label: 'Gas & EV charging' },
+  { value: 'TRAVEL', label: 'Travel' },
+  { value: 'ENTERTAINMENT', label: 'Streaming & entertainment' },
+  { value: 'EVERYDAY', label: 'A bit of everything' },
+]
+
+// `when` lets a question be skipped when an earlier answer already covers it
+// (or makes it irrelevant), so nobody is asked the same thing twice.
 const QUESTIONS = [
-  { id: 'hasCard', type: 'yesno', text: 'Do you already have a credit card?' },
-  { id: 'spend', type: 'text', text: 'What do you find are your biggest expenditures?' },
   {
-    id: 'travel',
-    type: 'yesno',
-    text: 'Do you find yourself wanting more benefits for things like trips (flights, hotels, rental cars, etc)?',
+    id: 'spend',
+    type: 'multi',
+    text: `Where does most of your money go? Pick up to ${MAX_SPEND_PICKS}.`,
+    options: SPEND_OPTIONS,
   },
   {
-    id: 'dining',
+    id: 'abroad',
     type: 'yesno',
-    text: 'Do you find yourself eating out a lot at restaurants trying new food and places?',
+    text: 'Since you travel, will you be spending abroad? (That is where foreign transaction fees bite.)',
+    when: (answers) => answers.spend?.includes('TRAVEL'),
+  },
+  {
+    id: 'monthly',
+    type: 'choice',
+    text: 'Roughly how much would you put on the card each month?',
+    options: [
+      { value: 'low', label: 'Under $500' },
+      { value: 'mid', label: '$500 – $1,500' },
+      { value: 'high', label: 'Over $1,500' },
+    ],
+  },
+  {
+    id: 'style',
+    type: 'choice',
+    text: 'How would you like to be paid back?',
+    options: [
+      { value: 'cash', label: 'Simple cash back' },
+      { value: 'points', label: 'Points or miles' },
+      { value: 'any', label: 'No preference' },
+    ],
   },
   {
     id: 'maxFee',
-    type: 'number',
-    text: 'What is the maximum amount of money that you would spend on an annual credit card fee?',
+    type: 'choice',
+    text: 'What is the most you would pay in annual fees?',
+    options: [
+      { value: 0, label: '$0 (no annual fee)' },
+      { value: 100, label: 'Up to $100' },
+      { value: 300, label: 'Up to $300' },
+      { value: Infinity, label: 'Any amount' },
+    ],
   },
 ]
 
@@ -34,8 +73,15 @@ const initialState = {
 
 function formatAnswerText(question, value) {
   if (question.type === 'yesno') return value ? 'Yes' : 'No'
-  if (question.type === 'number') return `$${value}`
-  return value
+  const labelOf = (v) => question.options.find((o) => o.value === v)?.label ?? String(v)
+  return question.type === 'multi' ? value.map(labelOf).join(', ') : labelOf(value)
+}
+
+// Index of the next question that still applies given the answers so far.
+function nextQuestionIndex(from, answers) {
+  let i = from + 1
+  while (i < QUESTIONS.length && QUESTIONS[i].when && !QUESTIONS[i].when(answers)) i++
+  return i
 }
 
 function reducer(state, action) {
@@ -49,7 +95,7 @@ function reducer(state, action) {
     text: formatAnswerText(question, action.value),
   }
   const answers = { ...state.answers, [question.id]: action.value }
-  const nextIndex = state.stepIndex + 1
+  const nextIndex = nextQuestionIndex(state.stepIndex, answers)
 
   if (nextIndex >= QUESTIONS.length) {
     return { ...state, transcript: [...state.transcript, userBubble], answers, status: 'complete' }
@@ -67,7 +113,7 @@ function reducer(state, action) {
 export default function FindMyCardPage({ cards }) {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [activeId, setActiveId] = useState(null)
-  const [textValue, setTextValue] = useState('')
+  const [picked, setPicked] = useState([])
 
   const results = useMemo(() => {
     if (state.status !== 'complete') return null
@@ -78,14 +124,24 @@ export default function FindMyCardPage({ cards }) {
   const currentQuestion = QUESTIONS[state.stepIndex]
 
   function submitAnswer(value) {
-    setTextValue('')
+    setPicked([])
     dispatch({ type: 'ANSWER', value })
+  }
+
+  // "A bit of everything" is exclusive; otherwise up to MAX_SPEND_PICKS categories.
+  function togglePick(value) {
+    setPicked((prev) => {
+      if (prev.includes(value)) return prev.filter((v) => v !== value)
+      if (value === 'EVERYDAY') return ['EVERYDAY']
+      const withoutEveryday = prev.filter((v) => v !== 'EVERYDAY')
+      return withoutEveryday.length >= MAX_SPEND_PICKS ? prev : [...withoutEveryday, value]
+    })
   }
 
   function restart() {
     dispatch({ type: 'RESTART' })
     setActiveId(null)
-    setTextValue('')
+    setPicked([])
   }
 
   return (
@@ -117,74 +173,66 @@ export default function FindMyCardPage({ cards }) {
         </div>
       )}
 
-      {state.status === 'in-progress' && currentQuestion.type === 'text' && (
-        <form
-          className="quiz-input-row"
-          onSubmit={(e) => {
-            e.preventDefault()
-            if (textValue.trim()) submitAnswer(textValue.trim())
-          }}
-        >
-          <input
-            type="text"
-            value={textValue}
-            onChange={(e) => setTextValue(e.target.value)}
-            placeholder="e.g. groceries, gas, eating out..."
-            autoFocus
-          />
-          <button className="quiz-btn primary" type="submit" disabled={!textValue.trim()}>
-            Send
+      {state.status === 'in-progress' && currentQuestion.type === 'multi' && (
+        <div className="quiz-input-row wrap">
+          {currentQuestion.options.map((o) => (
+            <button
+              key={o.value}
+              className={`quiz-btn${picked.includes(o.value) ? ' selected' : ''}`}
+              aria-pressed={picked.includes(o.value)}
+              onClick={() => togglePick(o.value)}
+            >
+              {o.label}
+            </button>
+          ))}
+          <button
+            className="quiz-btn primary"
+            disabled={picked.length === 0}
+            onClick={() => submitAnswer(picked)}
+          >
+            Continue
           </button>
-        </form>
+        </div>
       )}
 
-      {state.status === 'in-progress' && currentQuestion.type === 'number' && (
-        <form
-          className="quiz-input-row"
-          onSubmit={(e) => {
-            e.preventDefault()
-            if (textValue !== '') submitAnswer(Number(textValue))
-          }}
-        >
-          <input
-            type="number"
-            min="0"
-            step="1"
-            value={textValue}
-            onChange={(e) => setTextValue(e.target.value)}
-            placeholder="e.g. 95"
-            autoFocus
-          />
-          <button className="quiz-btn primary" type="submit" disabled={textValue === ''}>
-            Send
-          </button>
-        </form>
+      {state.status === 'in-progress' && currentQuestion.type === 'choice' && (
+        <div className="quiz-input-row wrap">
+          {currentQuestion.options.map((o) => (
+            <button key={o.label} className="quiz-btn" onClick={() => submitAnswer(o.value)}>
+              {o.label}
+            </button>
+          ))}
+        </div>
       )}
 
       {state.status === 'complete' && results && (
         <div className="quiz-results">
           <h2>Your top {results.length} matches</h2>
-          <ul className="result-reasoning-list">
-            {results.map((r) => (
-              <li key={r.card.id}>
-                <strong>{r.card.name}</strong>
-                <span className="reason-text"> — {r.reasons.join(' · ')}</span>
-                {r.overBudget && (
-                  <em className="over-budget-note">
-                    {' '}
-                    (over your ${state.answers.maxFee} limit by ${r.overBudgetBy})
-                  </em>
-                )}
-              </li>
-            ))}
-          </ul>
 
           <CardTabs
             cards={results.map((r) => r.card)}
             activeId={activeResult?.card.id}
             onSelect={setActiveId}
           />
-          {activeResult && <CardDetail card={activeResult.card} />}
+          {activeResult && (
+            <>
+              <section className="why-box">
+                <h3>Why {activeResult.card.name} matched</h3>
+                <ul>
+                  {activeResult.reasons.map((reason) => (
+                    <li key={reason}>{reason}</li>
+                  ))}
+                </ul>
+                {activeResult.overBudget && (
+                  <p className="over-budget-note">
+                    Over your ${state.answers.maxFee} fee limit by ${activeResult.overBudgetBy} — shown
+                    because too few cards fit the limit.
+                  </p>
+                )}
+              </section>
+              <CardDetail card={activeResult.card} />
+            </>
+          )}
 
           <button className="quiz-btn restart-btn" onClick={restart}>
             Start over
