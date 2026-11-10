@@ -8,7 +8,7 @@
 //   abroad:  boolean, only asked when TRAVEL is in `spend`
 //   monthly: 'low' | 'mid' | 'high' — rough monthly card spend
 //   style:   'cash' | 'points' | 'any' — preferred kind of rewards
-//   maxFee:  number, or Infinity for "any amount" (hard filter)
+//   maxFee:  any typed dollar amount, or Infinity for "no limit" (hard filter)
 
 export const CATEGORIES = {
   TRAVEL: 'TRAVEL',

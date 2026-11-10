@@ -53,14 +53,8 @@ const QUESTIONS = [
   },
   {
     id: 'maxFee',
-    type: 'choice',
-    text: 'What is the most you would pay in annual fees?',
-    options: [
-      { value: 0, label: '$0 (no annual fee)' },
-      { value: 100, label: 'Up to $100' },
-      { value: 300, label: 'Up to $300' },
-      { value: Infinity, label: 'Any amount' },
-    ],
+    type: 'amount',
+    text: 'What is the most you would pay in annual fees? Type any dollar amount, or skip the limit.',
   },
 ]
 
@@ -73,6 +67,7 @@ const initialState = {
 
 function formatAnswerText(question, value) {
   if (question.type === 'yesno') return value ? 'Yes' : 'No'
+  if (question.type === 'amount') return Number.isFinite(value) ? `$${value}` : 'No limit'
   const labelOf = (v) => question.options.find((o) => o.value === v)?.label ?? String(v)
   return question.type === 'multi' ? value.map(labelOf).join(', ') : labelOf(value)
 }
@@ -114,6 +109,7 @@ export default function FindMyCardPage({ cards }) {
   const [state, dispatch] = useReducer(reducer, initialState)
   const [activeId, setActiveId] = useState(null)
   const [picked, setPicked] = useState([])
+  const [amount, setAmount] = useState('')
 
   const results = useMemo(() => {
     if (state.status !== 'complete') return null
@@ -125,6 +121,7 @@ export default function FindMyCardPage({ cards }) {
 
   function submitAnswer(value) {
     setPicked([])
+    setAmount('')
     dispatch({ type: 'ANSWER', value })
   }
 
@@ -142,6 +139,7 @@ export default function FindMyCardPage({ cards }) {
     dispatch({ type: 'RESTART' })
     setActiveId(null)
     setPicked([])
+    setAmount('')
   }
 
   return (
@@ -203,6 +201,38 @@ export default function FindMyCardPage({ cards }) {
             </button>
           ))}
         </div>
+      )}
+
+      {state.status === 'in-progress' && currentQuestion.type === 'amount' && (
+        <form
+          className="quiz-input-row wrap"
+          onSubmit={(e) => {
+            e.preventDefault()
+            if (amount !== '' && Number(amount) >= 0) submitAnswer(Number(amount))
+          }}
+        >
+          <input
+            type="number"
+            inputMode="numeric"
+            min="0"
+            step="1"
+            value={amount}
+            onChange={(e) => setAmount(e.target.value)}
+            placeholder="e.g. 325"
+            aria-label="Maximum annual fee in dollars"
+            autoFocus
+          />
+          <button
+            className="quiz-btn primary"
+            type="submit"
+            disabled={amount === '' || Number(amount) < 0}
+          >
+            Send
+          </button>
+          <button className="quiz-btn" type="button" onClick={() => submitAnswer(Infinity)}>
+            No limit
+          </button>
+        </form>
       )}
 
       {state.status === 'complete' && results && (
