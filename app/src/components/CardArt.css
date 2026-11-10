@@ -59,7 +59,7 @@
   position: absolute;
   left: 8cqw;
   bottom: 7cqw;
-  max-width: 62cqw;
+  max-width: 84cqw;
   font-size: 6.4cqw;
   font-weight: 600;
   line-height: 1.15;
@@ -69,8 +69,8 @@
 .card-art-network {
   position: absolute;
   right: 8cqw;
-  bottom: 7cqw;
-  font-size: 6cqw;
+  top: 7cqw;
+  font-size: 5.2cqw;
   font-weight: 700;
   font-style: italic;
   letter-spacing: 0.06em;
