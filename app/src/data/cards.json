@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release. Extended 2026-11-09 with Bank of America Travel Rewards (the $0 entry tier already named in the BofA lineup), researched from Bankrate and CNBC reviews plus BofA's own page metadata. Extended 2026-11-09 with Citi Strata and Citi Strata Elite (completing the Citi Strata lineup), researched from Citi's own card pages plus Bankrate, One Mile at a Time, and Doctor of Credit; the Strata Premier transfer-partner list was widened to Citi's full ThankYou list at the same time.",
-    "cardCount": 24
+    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release. Extended 2026-11-09 with Bank of America Travel Rewards (the $0 entry tier already named in the BofA lineup), researched from Bankrate and CNBC reviews plus BofA's own page metadata. Extended 2026-11-09 with Citi Strata and Citi Strata Elite (completing the Citi Strata lineup), researched from Citi's own card pages plus Bankrate, One Mile at a Time, and Doctor of Credit; the Strata Premier transfer-partner list was widened to Citi's full ThankYou list at the same time. Extended 2026-11-09 with the no-fee Wells Fargo Autograph, so Wells Fargo now has a two-card comparison; researched from Wells Fargo's own card page plus point.me, AwardWallet, Bankrate, Cards and Points, and HelloSafe.",
+    "cardCount": 25
   },
   "cards": [
     {
@@ -1885,6 +1885,138 @@
         "Purchase protection/extended warranty status is genuinely unclear — flagged above.",
         "Transfer partner list is secondary-source-only (official pages 404'd on fetch) — worth a manual check.",
         "Welcome bonus (60,000 pts/$4,000 spend) is a rotating promo; don't confuse with the different 'Premier Autograph' card's 100,000-point offer."
+      ]
+    },
+    {
+      "id": "wells-fargo-autograph",
+      "name": "Wells Fargo Autograph® Card",
+      "issuer": "Wells Fargo",
+      "network": "Visa Signature",
+      "annualFee": 0,
+      "tier": {
+        "family": "Wells Fargo Autograph lineup",
+        "lineup": [
+          "Autograph ($0)",
+          "Autograph Journey ($95)",
+          "Premier Autograph, Visa Infinite (new, Feb 2026 — eligibility rules still unclear)"
+        ],
+        "rank": "1 of 3 (entry tier, no annual fee)",
+        "note": "Wells Fargo's page says cardholders can switch to a different Wells Fargo card with no new application or credit check, but a switch earns no new bonus or intro APR."
+      },
+      "pointsProgram": {
+        "name": "Wells Fargo Rewards points",
+        "earningRates": [
+          {
+            "rate": "3x",
+            "category": "Restaurants"
+          },
+          {
+            "rate": "3x",
+            "category": "Travel: airlines, hotels, car rentals, cruises, travel agencies, campgrounds"
+          },
+          {
+            "rate": "3x",
+            "category": "Gas stations and EV charging"
+          },
+          {
+            "rate": "3x",
+            "category": "Transit: rail, taxis, tolls, parking, ferries"
+          },
+          {
+            "rate": "3x",
+            "category": "Popular streaming services"
+          },
+          {
+            "rate": "3x",
+            "category": "Phone plans (cell and landline)"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "1 cent/point (Wells Fargo's own example math): statement credit toward a past purchase, or credit to an eligible Wells Fargo card or checking account",
+          "Gift cards from 250+ merchants, e-gift cards from $10",
+          "Transfer to airline and hotel partners, in any amount",
+          "Points don't expire while the account is open"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [
+            "Air France/KLM Flying Blue",
+            "British Airways Avios",
+            "Cathay Pacific Asia Miles",
+            "JetBlue TrueBlue",
+            "Virgin Atlantic Flying Club",
+            "Avianca LifeMiles",
+            "Iberia Avios",
+            "Aer Lingus Avios"
+          ],
+          "hotels": [
+            "Choice Privileges (1:2)",
+            "Wyndham Rewards (1:2)"
+          ]
+        },
+        "coBrand": "None.",
+        "other": "My Wells Fargo Deals (personalized merchant offers paid as account credits) and Autograph Card Exclusives (access to live-event tickets)."
+      },
+      "perks": [
+        {
+          "name": "0% intro APR",
+          "value": "12 months on purchases",
+          "note": "variable APR after; the ongoing rate is a range that changes, so it isn't recorded here"
+        },
+        {
+          "name": "No annual fee"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Cell phone protection",
+          "value": "up to $600/claim",
+          "note": "$25 deductible, max 2 paid claims per 12 months; the monthly phone bill must be paid with the card"
+        },
+        {
+          "name": "Auto rental collision damage waiver",
+          "note": "coverage cap not captured"
+        },
+        {
+          "name": "Roadside Dispatch",
+          "note": "24/7 tow and service calls, no membership; you pay the service provider's fee"
+        },
+        {
+          "name": "Visa Signature Concierge",
+          "note": "24/7 for tickets, dining reservations, and bookings"
+        },
+        {
+          "name": "Visa Signature Luxury Hotel Collection",
+          "note": "benefits at select luxury properties when booked through Visa"
+        },
+        {
+          "name": "Travel and emergency assistance services",
+          "note": "referral and assistance only; you pay for the services themselves"
+        },
+        {
+          "name": "Zero Liability protection"
+        },
+        {
+          "name": "Free FICO Score updates (Credit Close-Up)",
+          "note": "for Wells Fargo Online customers"
+        },
+        {
+          "name": "No trip insurance",
+          "note": "no trip cancellation, delay, or lost-baggage coverage appears on Wells Fargo's page (those come with Autograph Journey)"
+        }
+      ],
+      "flags": [
+        "Transfer partner list is secondary-sourced (point.me, AwardWallet, and others agree on these ten programs): Wells Fargo's own page just says \"select travel loyalty programs\" without naming them. The list has changed recently (Cathay Pacific and Wyndham were added in 2026), so confirm on Wells Fargo's site.",
+        "Purchase protection and extended warranty aren't listed on Wells Fargo's page for this card. Bankrate's benefits guide lists extended warranty, while Cards and Points and HelloSafe say it isn't included, so treat it as likely NOT included until checked against the Guide to Benefits.",
+        "CNBC's review table lists a 3% foreign transaction fee, but Wells Fargo's own page says there is none — the issuer's statement was used.",
+        "Welcome bonus (20,000 points after $1,000 in the first 3 months at research time) is a rotating promo, and Wells Fargo notes offers differ by marketing channel. It isn't stored as a fixed feature.",
+        "The ongoing variable APR, balance transfer terms, and the auto rental coverage cap weren't recorded."
       ]
     },
     {

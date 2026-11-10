@@ -17,6 +17,7 @@ const THEMES = {
   'citi-strata': { label: 'Strata', from: '#4a9be8', to: '#1d5fae', ink: '#ffffff' },
   'citi-strata-premier': { label: 'Strata Premier', from: '#1560bd', to: '#06285a', ink: '#ffffff' },
   'citi-strata-elite': { label: 'Strata Elite', from: '#2b2e35', to: '#0b0c10', ink: '#ffffff', accent: '#c9a35a' },
+  'wells-fargo-autograph': { label: 'Autograph', from: '#e0243a', to: '#9a1024', ink: '#ffffff', accent: '#f2c230' },
   'wells-fargo-autograph-journey': { label: 'Autograph Journey', from: '#b8142c', to: '#5e0a18', ink: '#ffffff', accent: '#f2c230' },
   'discover-it-cash-back': { label: 'it Cash Back', from: '#f78a2a', to: '#c4590a', ink: '#ffffff' },
   'discover-it-miles': { label: 'it Miles', from: '#fbb04d', to: '#d0661a', ink: '#2a1404' },
