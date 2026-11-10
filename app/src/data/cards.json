@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release. Extended 2026-11-09 with Bank of America Travel Rewards (the $0 entry tier already named in the BofA lineup), researched from Bankrate and CNBC reviews plus BofA's own page metadata.",
-    "cardCount": 22
+    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release. Extended 2026-11-09 with Bank of America Travel Rewards (the $0 entry tier already named in the BofA lineup), researched from Bankrate and CNBC reviews plus BofA's own page metadata. Extended 2026-11-09 with Citi Strata and Citi Strata Elite (completing the Citi Strata lineup), researched from Citi's own card pages plus Bankrate, One Mile at a Time, and Doctor of Credit; the Strata Premier transfer-partner list was widened to Citi's full ThankYou list at the same time.",
+    "cardCount": 24
   },
   "cards": [
     {
@@ -1419,6 +1419,137 @@
       ]
     },
     {
+      "id": "citi-strata-elite",
+      "name": "Citi Strata Elite® Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "annualFee": 595,
+      "annualFeeNote": "Citigold clients get a $145 annual banking relationship credit; Citigold Private Clients get $595 the first year, then $145 each year after.",
+      "tier": {
+        "family": "Citi Strata lineup",
+        "lineup": [
+          "Citi Strata ($0)",
+          "Citi Strata Premier ($95)",
+          "Citi Strata Elite ($595)"
+        ],
+        "rank": "3 of 3 (top tier)",
+        "note": "Citi is not offering product changes into Strata Elite from other Citi cards, per Bankrate — it requires a new application."
+      },
+      "pointsProgram": {
+        "name": "ThankYou Points",
+        "earningRates": [
+          {
+            "rate": "12x",
+            "category": "Hotels, car rentals, and attractions booked on cititravel.com"
+          },
+          {
+            "rate": "6x",
+            "category": "Air travel booked on cititravel.com"
+          },
+          {
+            "rate": "6x",
+            "category": "Restaurants on Citi Nights (Friday and Saturday, 6 PM to 6 AM ET)"
+          },
+          {
+            "rate": "3x",
+            "category": "Restaurants at any other time"
+          },
+          {
+            "rate": "1.5x",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "1 cent/point toward travel booked through Citi Travel (per Bankrate)",
+          "Transfer to airline and hotel partners (1,000-point minimum)",
+          "Shop with points (Amazon, PayPal, CVS), gift cards, and cash back via thankyou.com"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [
+            "American Airlines AAdvantage",
+            "Aeromexico",
+            "Avianca LifeMiles",
+            "Cathay Pacific Asia Miles",
+            "Emirates Skywards",
+            "Etihad Guest",
+            "EVA Air Infinity MileageLands",
+            "Air France/KLM Flying Blue",
+            "JetBlue TrueBlue",
+            "Qantas Frequent Flyer",
+            "Qatar Airways Privilege Club",
+            "Singapore Airlines KrisFlyer",
+            "Thai Royal Orchid Plus",
+            "Turkish Airlines Miles&Smiles",
+            "Virgin Atlantic Flying Club"
+          ],
+          "hotels": [
+            "Choice Hotels Privileges",
+            "The Leading Hotels of the World",
+            "Wyndham Rewards",
+            "Accor Live Limitless",
+            "Preferred Hotels & Resorts"
+          ]
+        },
+        "coBrand": "None — but includes American Airlines Admirals Club lounge passes.",
+        "other": "Citi Entertainment ticket access, The Reserve by Citi Travel, and Citi Flex Pay installments on purchases of $75+."
+      },
+      "perks": [
+        {
+          "name": "Annual hotel benefit",
+          "value": "up to $300",
+          "note": "off one stay of 2+ nights booked through cititravel.com, once per calendar year"
+        },
+        {
+          "name": "Splurge credit",
+          "value": "up to $200/yr",
+          "note": "on up to 2 of: 1stDibs, American Airlines, Best Buy, Future Personal Training, Live Nation (exclusions apply)"
+        },
+        {
+          "name": "Blacklane chauffeur credit",
+          "value": "up to $200/yr",
+          "note": "up to $100 Jan-Jun and $100 Jul-Dec"
+        },
+        {
+          "name": "Priority Pass Select membership",
+          "value": "1,500+ lounges",
+          "note": "Citi values the membership at $469"
+        },
+        {
+          "name": "American Airlines Admirals Club passes",
+          "value": "4 per calendar year",
+          "note": "for nearly 50 Admirals Club lounges"
+        },
+        {
+          "name": "Global Entry or TSA PreCheck credit",
+          "value": "up to $120 every 4 years"
+        },
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "Travel and shopping protection",
+          "note": "trip delay, enhanced trip cancellation/interruption, lost or damaged luggage, MasterRental car coverage, extended warranty, purchase assurance"
+        },
+        {
+          "name": "Authorized user fee",
+          "value": "$75",
+          "note": "per Bankrate"
+        },
+        {
+          "name": "No intro APR",
+          "note": "per Bankrate; balance transfers cost the greater of $5 or 5%"
+        }
+      ],
+      "flags": [
+        "Annual fee ($595), authorized user fee ($75), and the no-intro-APR detail come from secondary sources (Bankrate, One Mile at a Time, Doctor of Credit): Citi's own page fills those dollar amounts in dynamically, so they are missing from its readable text.",
+        "Welcome bonus is a rotating promo (75,000 points after $6,000 in the first 3 months at research time; once-per-lifetime rules apply) — treat as volatile.",
+        "The Priority Pass Select membership's guest and visit terms weren't captured, so lounge access beyond the 1,500+ lounge network and the 4 Admirals Club passes isn't described.",
+        "Transfer partner list (15 airlines, 5 hotels) comes from Bankrate's program-wide list of Citi ThankYou partners; Citi's own card pages name only seven of them (American, JetBlue, Virgin Atlantic, Cathay Pacific, EVA Air, Choice, Leading Hotels) and say \"and others\" — confirm the full list on Citi's site."
+      ]
+    },
+    {
       "id": "citi-strata-premier",
       "name": "Citi Strata Premier® Card",
       "issuer": "Citi",
@@ -1461,14 +1592,27 @@
         "transferPartners": {
           "airlines": [
             "American Airlines AAdvantage",
-            "JetBlue TrueBlue",
-            "Virgin Atlantic Flying Club",
+            "Aeromexico",
+            "Avianca LifeMiles",
             "Cathay Pacific Asia Miles",
-            "EVA Air Infinity MileageLands"
+            "Emirates Skywards",
+            "Etihad Guest",
+            "EVA Air Infinity MileageLands",
+            "Air France/KLM Flying Blue",
+            "JetBlue TrueBlue",
+            "Qantas Frequent Flyer",
+            "Qatar Airways Privilege Club",
+            "Singapore Airlines KrisFlyer",
+            "Thai Royal Orchid Plus",
+            "Turkish Airlines Miles&Smiles",
+            "Virgin Atlantic Flying Club"
           ],
           "hotels": [
             "Choice Hotels Privileges",
-            "The Leading Hotels of the World"
+            "The Leading Hotels of the World",
+            "Wyndham Rewards",
+            "Accor Live Limitless",
+            "Preferred Hotels & Resorts"
           ]
         },
         "coBrand": "None.",
@@ -1514,9 +1658,125 @@
         }
       ],
       "flags": [
-        "Transfer partner list may be incomplete — historically included Turkish Airlines, Qantas, Singapore KrisFlyer, Air France/KLM, not confirmed present in this pass.",
+        "Transfer partner list (15 airlines, 5 hotels) comes from Bankrate's program-wide list of Citi ThankYou partners; Citi's own card pages name only seven of them (American, JetBlue, Virgin Atlantic, Cathay Pacific, EVA Air, Choice, Leading Hotels) and say \"and others\" — confirm the full list on Citi's site.",
         "Welcome bonus (60,000 pts/$4,000 spend at research time) is a rotating promo.",
         "Several insurance benefit dollar caps unconfirmed."
+      ]
+    },
+    {
+      "id": "citi-strata",
+      "name": "Citi Strata® Card",
+      "issuer": "Citi",
+      "network": "Mastercard",
+      "annualFee": 0,
+      "tier": {
+        "family": "Citi Strata lineup",
+        "lineup": [
+          "Citi Strata ($0)",
+          "Citi Strata Premier ($95)",
+          "Citi Strata Elite ($595)"
+        ],
+        "rank": "1 of 3 (entry tier, no annual fee)",
+        "note": "Refresh of the older Citi Rewards+ card, per Bankrate."
+      },
+      "pointsProgram": {
+        "name": "ThankYou Points",
+        "earningRates": [
+          {
+            "rate": "5x",
+            "category": "Hotels, car rentals, and attractions booked on cititravel.com"
+          },
+          {
+            "rate": "3x",
+            "category": "Supermarkets"
+          },
+          {
+            "rate": "3x",
+            "category": "Gas & EV charging stations and select transit"
+          },
+          {
+            "rate": "3x",
+            "category": "A self-select category of your choice: fitness clubs, select streaming services, live entertainment, cosmetic stores/barbers/salons, or pet supply stores (default is streaming)"
+          },
+          {
+            "rate": "2x",
+            "category": "Restaurants"
+          },
+          {
+            "rate": "1x",
+            "category": "Everything else"
+          }
+        ],
+        "redemption": [
+          "1 cent/point toward travel booked through Citi Travel (per Bankrate)",
+          "Transfer to airline and hotel partners (1,000-point minimum)",
+          "Shop with points (Amazon, PayPal, CVS), gift cards, and cash back via thankyou.com"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [
+            "American Airlines AAdvantage",
+            "Aeromexico",
+            "Avianca LifeMiles",
+            "Cathay Pacific Asia Miles",
+            "Emirates Skywards",
+            "Etihad Guest",
+            "EVA Air Infinity MileageLands",
+            "Air France/KLM Flying Blue",
+            "JetBlue TrueBlue",
+            "Qantas Frequent Flyer",
+            "Qatar Airways Privilege Club",
+            "Singapore Airlines KrisFlyer",
+            "Thai Royal Orchid Plus",
+            "Turkish Airlines Miles&Smiles",
+            "Virgin Atlantic Flying Club"
+          ],
+          "hotels": [
+            "Choice Hotels Privileges",
+            "The Leading Hotels of the World",
+            "Wyndham Rewards",
+            "Accor Live Limitless",
+            "Preferred Hotels & Resorts"
+          ]
+        },
+        "coBrand": "None.",
+        "other": "Citi Entertainment ticket access and presales; Citi Flex Pay installments on purchases of $75+."
+      },
+      "perks": [
+        {
+          "name": "0% intro APR",
+          "value": "15 months on purchases and balance transfers",
+          "note": "variable APR after; balance transfer fee is 3% ($5 minimum) within the first 4 months, then 5% ($5 minimum)"
+        },
+        {
+          "name": "No annual fee, and no authorized user fee"
+        },
+        {
+          "name": "Foreign transaction fee",
+          "value": "3%",
+          "note": "per Bankrate — not stated on Citi's own page"
+        },
+        {
+          "name": "Self-select 3x category",
+          "note": "change it any time online or by phone"
+        },
+        {
+          "name": "Free FICO Score access"
+        },
+        {
+          "name": "Mastercard ID Theft Protection and Citi Quick Lock"
+        },
+        {
+          "name": "No lounge access, travel insurance, or annual travel credits",
+          "note": "those start at Strata Premier and Elite"
+        }
+      ],
+      "flags": [
+        "No dollar bonus or APR range is recorded: the welcome bonus is a rotating promo (20,000 points after $1,000 in the first 3 months at research time) and variable APR ranges differed across sources.",
+        "The 3% foreign transaction fee and the 15-month intro APR come from Bankrate; Citi's own page leaves the figures out of its readable text — worth a manual check.",
+        "No travel insurance or purchase protection is listed because Citi's page lists none for this card, not because it was positively confirmed absent.",
+        "Transfer partner list (15 airlines, 5 hotels) comes from Bankrate's program-wide list of Citi ThankYou partners; Citi's own card pages name only seven of them (American, JetBlue, Virgin Atlantic, Cathay Pacific, EVA Air, Choice, Leading Hotels) and say \"and others\" — confirm the full list on Citi's site."
       ]
     },
     {
