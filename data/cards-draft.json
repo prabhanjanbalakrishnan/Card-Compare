@@ -1,7 +1,7 @@
 {
   "_meta": {
-    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release.",
-    "cardCount": 21
+    "purpose": "DRAFT dataset for review before building the app. Compiled by AI agents researching official issuer pages (cross-checked with NerdWallet/The Points Guy/Bankrate/CNBC Select) on 2026-08-19. Do NOT treat as final — see 'flags' on each card for items worth a manual spot-check, and note that annual fees/perks change over time and welcome bonuses in particular are volatile promotional offers. Extended 2026-08-21 with 5 lower-tier, non-travel cards (Discover it Cash Back/Miles, TD Cash/Double Up/Clear) at the user's request. Apple Card added 2026-08-21 as a single-tier no-fee card. Extended 2026-11-02 with Chase's Freedom lineup (Freedom Rise, Freedom Unlimited, Freedom Flex), researched from Chase's own card pages and its Sept 2026 Freedom Flex press release. Extended 2026-11-09 with Bank of America Travel Rewards (the $0 entry tier already named in the BofA lineup), researched from Bankrate and CNBC reviews plus BofA's own page metadata.",
+    "cardCount": 22
   },
   "cards": [
     {
@@ -1340,6 +1340,82 @@
       ],
       "flags": [
         "BofA Rewards relationship-bonus tier percentages (25/50/75%) confirmed via secondary source only."
+      ]
+    },
+    {
+      "id": "bofa-travel-rewards",
+      "name": "Bank of America® Travel Rewards credit card",
+      "issuer": "Bank of America",
+      "network": "Visa",
+      "annualFee": 0,
+      "tier": {
+        "family": "Bank of America travel rewards lineup",
+        "lineup": [
+          "Travel Rewards ($0)",
+          "Premium Rewards ($95)",
+          "Premium Rewards Elite ($550)"
+        ],
+        "rank": "1 of 3 (entry tier, no annual fee)"
+      },
+      "pointsProgram": {
+        "name": "BofA Travel Rewards points (fixed value)",
+        "earningRates": [
+          {
+            "rate": "3x",
+            "category": "Travel booked through BofA Travel"
+          },
+          {
+            "rate": "1.5x",
+            "category": "Everything else, unlimited"
+          }
+        ],
+        "redemption": [
+          "1 cent/point as a statement credit against travel or dining purchases (flights, hotels, car and vacation rentals, baggage fees, restaurants incl. takeout) made within the last 12 months; 2,500-point minimum",
+          "Cash deposit to a BofA/Merrill account or check is worth only about 0.6 cent/point; gift cards vary by retailer (3,125-point minimum)",
+          "Points don't expire while the account is open"
+        ]
+      },
+      "partnerships": {
+        "transferPartners": {
+          "airlines": [],
+          "hotels": []
+        },
+        "coBrand": "None — fixed-value points, no airline/hotel transfer partners.",
+        "other": "BofA Rewards relationship bonus on all points earned (renamed from Preferred Rewards, May 2026): Member +10%, Preferred Plus (combined BofA/Merrill balances $30k+) +25%, Preferred Honors ($100k+) +50%, Premier ($1M+) +75%."
+      },
+      "perks": [
+        {
+          "name": "No foreign transaction fees"
+        },
+        {
+          "name": "0% intro APR",
+          "value": "15 billing cycles on purchases and on balance transfers made in the first 60 days",
+          "note": "variable APR after; balance transfer fee is 3% for the first 60 days, then 5%"
+        },
+        {
+          "name": "BankAmeriDeals",
+          "note": "card-linked merchant offers you activate in your account"
+        },
+        {
+          "name": "Museums on Us",
+          "note": "free admission to 225+ museums on the first weekend of each month with a BofA card and photo ID"
+        },
+        {
+          "name": "Visa Signature-style benefits",
+          "note": "per secondary sources — extended warranty, concierge, roadside dispatch, lost luggage reimbursement, travel and emergency assistance; which apply to your card depends on your Visa tier"
+        },
+        {
+          "name": "No trip insurance",
+          "note": "cancellation/delay and luggage protections start at Premium Rewards"
+        }
+      ],
+      "flags": [
+        "Researched mostly from secondary sources (Bankrate, CNBC) because Bank of America's own card page loads its details with JavaScript and only confirmed the 1.5x flat rate, no expiration, and no annual fee — worth a manual check on the official page.",
+        "The 3x rate applies only to travel booked through BofA Travel, not travel booked directly with airlines or hotels. Secondary sources describe the rest of the card as a flat 1.5x.",
+        "Which Visa tier you get (Visa Signature or a lower tier) wasn't stated by BofA's own page, and secondary sources hedge — confirm which of the Visa benefits listed actually apply.",
+        "Intro APR length differs by source and date (15 billing cycles on Bankrate's current review; an older CNBC review says 18 cycles for purchases). Variable APR ranges also differ across sources, so none is recorded here.",
+        "The welcome bonus is a rotating promo (25,000 points after $1,000 in purchases in 90 days at research time, worth $250 as a travel statement credit) — treat as volatile.",
+        "The BofA Rewards bonus tiers match the Premium Rewards entry's secondary-sourced figures; the 'Member +10%' tier needs a BofA checking or savings account, per secondary sources."
       ]
     },
     {

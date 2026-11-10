@@ -13,6 +13,7 @@ const THEMES = {
   'capital-one-venture': { label: 'Venture', from: '#46505e', to: '#1c2229', ink: '#ffffff', accent: '#d03027' },
   'bofa-premium-rewards': { label: 'Premium Rewards', from: '#d1203a', to: '#7d0a1c', ink: '#ffffff' },
   'bofa-premium-rewards-elite': { label: 'Premium Rewards Elite', from: '#2c2c2f', to: '#0d0d0e', ink: '#ffffff', accent: '#d1203a' },
+  'bofa-travel-rewards': { label: 'Travel Rewards', from: '#f0485d', to: '#b3182e', ink: '#ffffff' },
   'citi-strata-premier': { label: 'Strata Premier', from: '#1560bd', to: '#06285a', ink: '#ffffff' },
   'wells-fargo-autograph-journey': { label: 'Autograph Journey', from: '#b8142c', to: '#5e0a18', ink: '#ffffff', accent: '#f2c230' },
   'discover-it-cash-back': { label: 'it Cash Back', from: '#f78a2a', to: '#c4590a', ink: '#ffffff' },
